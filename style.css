@@ -1,0 +1,67 @@
+@import url('https://fonts.googleapis.com/css2?family=Forum&family=Inter:wght@400;700&display=swap');
+
+header {
+    color: #FFFFFF;
+    height: 90px;
+    background: #0C0C0E;
+    display: flex;
+}
+
+body {
+    width: 1440px;
+    margin: auto;
+    display: flex;
+}
+
+.logo {
+    margin: 20px 0px 20px 20px;
+    width: 294px;
+}
+
+h1 {
+    display: inline-flex;
+    color: #FFF;
+    font-family: Forum;
+    font-size: 30px;
+    font-weight: 400;
+    line-height: 50px;
+    letter-spacing: 0.6px;
+    margin: auto;
+}
+
+.nav {
+    width: 584px;
+    height: 50px;
+    margin: 20px 0px 20px 454px;
+}
+
+.nav-list {
+    display: inline-flex;
+    align-items: flex-start;
+    padding-inline-start: 0px;
+    gap: 30px;
+    margin: auto;
+    list-style: none;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 50px;
+}
+
+.nav-list-item {
+    color: #FFF;
+    font-family: Inter;
+    font-weight: 400;
+    text-decoration: none;
+}
+
+.nav-list :hover {
+    text-decoration: underline;
+}
+
+.profile {
+    height: 28px;
+    width: 28px;
+    display: inline-flex;
+    margin: 31px 20px 31px 40px;
+}
