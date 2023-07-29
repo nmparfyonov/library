@@ -1,15 +1,17 @@
 @import url('https://fonts.googleapis.com/css2?family=Forum&family=Inter:wght@400;700&display=swap');
 
-header {
-    color: #FFFFFF;
-    height: 90px;
-    background: #0C0C0E;
-    display: flex;
-}
 
 body {
     width: 1440px;
     margin: auto;
+    background-color: #0C0C0E;
+}
+
+/* header */
+header {
+    color: #FFFFFF;
+    height: 90px;
+    background: #0C0C0E;
     display: flex;
 }
 
@@ -64,4 +66,44 @@ h1 {
     width: 28px;
     display: inline-flex;
     margin: 31px 20px 31px 40px;
+}
+
+/* welcome */
+main {
+    display: flex;
+}
+
+.welcome {
+    background: url(./images/Welcome.png), lightgray 50% / cover no-repeat;
+    height: 600px;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+.welcome-container {
+    background: #0C0C0E;
+    display: flex;
+    width: 600px;
+    height: 220px;
+    padding: 35px 40px;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+    margin: 220px 840px 160px 0px;
+    padding: 0%;
+}
+
+.welcome-text {
+    width: 520px;
+    flex-shrink: 0;
+    color: #FFF;
+    text-align: center;
+    font-family: Forum;
+    font-size: 40px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 50px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
 }
