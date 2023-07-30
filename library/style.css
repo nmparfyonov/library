@@ -228,8 +228,102 @@ h1 {
     height: 1439px;
     background: #FFF;
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+}
+
+.favorites-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
     align-items: flex-start;
+    gap: 40px;
+    width: 1400px;
+    margin: 40px 20px 0px 20px;
+}
+
+.favorites-radio {
+    display: inline-flex;
+    align-items: center;
+    gap: 90px;
+    color: #000;
+    font-family: Inter;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.favorites-seasons-button {
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.favorites-seasons-button input[type=radio] {
+    visibility: hidden;
+    position: relative;
+    margin: 0%;
+    width: 17px;
+    height: 17px;
+}
+
+.favorites-seasons-button input[type=radio]:hover {
+    cursor: pointer;
+}
+
+.favorites-seasons-button input[type=radio]:before {
+    content: "";
+    visibility: visible;
+    position: absolute;
+    height: 17x;
+    width: 17px;
+    background: url(./icons/radio.svg), #FFF 50% / cover no-repeat;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
+
+.favorites-seasons-button input[type=radio]:checked:before {
+    background: url(./icons/radio-check.svg), #FFF 50% / cover no-repeat;
+}
+
+.favorites-seasons-button input[type=radio]:checked+span {
+    color: #000;
+    font-family: Inter;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+
+.favorites-seasons-button-span-winter {
+    width: 68px;
+}
+
+.favorites-seasons-button-span-spring {
+    width: 62px;
+}
+
+.favorites-seasons-button-span-summer {
+    width: 79px;
+}
+
+.favorites-seasons-button-span-autumn {
+    width: 74px;
+}
+
+.favorites-heading {
+    color: #000;
+    text-align: center;
+    font-family: Inter;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
 }
 
 /* coffee shop */
@@ -238,8 +332,9 @@ h1 {
     height: 841px;
     background: #FFF;
     display: flex;
-    justify-content: center;
-    align-items: flex-start;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
 }
 
 /* contacts */
@@ -336,8 +431,9 @@ h1 {
     height: 614px;
     background: #FFF;
     display: flex;
-    justify-content: center;
-    align-items: flex-start;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
 }
 
 /* footer */
