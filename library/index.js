@@ -1,0 +1,1 @@
+console.log('92/100 - \nотсутствует раздел Library Card -8')
