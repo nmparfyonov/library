@@ -740,6 +740,189 @@ h1 {
     flex-direction: column;
 }
 
+.library-card-content {
+    width: 1400px;
+    height: 453px;
+    display: inline-flex;
+    gap: 344px;
+    margin: 40px 20px 0px 20px;
+}
+
+.library-card-find {
+    width: 600px;
+    height: 453px;
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    align-items: center;
+}
+
+.library-card-find-heading {
+    color: #000;
+    font-family: Inter;
+    font-size: 30px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: 0.6px;
+}
+
+.library-card-find-form {
+    width: 594px;
+    height: 380px;
+    flex-shrink: 0;
+    border: 3px solid #BB945F;
+    background: #FFF;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.library-card-find-form-inputs {
+    width: 560px;
+    height: 272px;
+    flex-shrink: 0;
+    background: #BB945F;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-top: 20px;
+}
+
+.library-card-find-form-inputs span {
+    color: #000;
+    font-family: Forum;
+    font-size: 30px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 50px;
+    letter-spacing: 0.6px;
+    margin: 20px 0px 0px 20px;
+}
+
+.library-card-find-form-inputs input {
+    width: 500px;
+    height: 50px;
+    flex-shrink: 0;
+    border-radius: 10px;
+    background: #FFF;
+    border: 0px;
+    margin: 20px 20px 5px 20px;
+    color: #8E8E8E;
+    font-family: Forum;
+    font-size: 30px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 50px;
+    letter-spacing: 0.6px;
+    padding: 8px 0px 8px 20px;
+}
+
+.library-card-find-form-inputs input:focus {
+    color: #BB945F;
+}
+
+.library-card-find-form-inputs form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.library-card-find-form-inputs button {
+    color: #0C0C0E;
+    text-align: center;
+    font-family: Inter;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    letter-spacing: 1px;
+    border-radius: 2px;
+    border: 1px solid #0C0C0E;
+    padding: 10px 40px 10px 40px;
+    align-self: center;
+    margin-top: 40px;
+    background-color: #FFF;
+}
+
+.library-card-find-form-inputs button:focus {
+    cursor: pointer;
+    border-radius: 2px;
+    border: 1px solid #BB945F;
+    background: #BB945F;
+}
+
+.library-card-find-form-inputs button:hover {
+    cursor: pointer;
+    border-radius: 2px;
+    border: 1px solid #BB945F;
+}
+
+.library-card-get {
+    width: 456px;
+    height: 253px;
+    flex-shrink: 0;
+    gap: 35px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.library-card-get-heading {
+    color: #000;
+    text-align: center;
+    font-family: Forum;
+    font-size: 30px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: 0.6px;
+}
+
+.library-card-get-text {
+    color: #000;
+    text-align: right;
+    font-family: Inter;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 40px;
+    letter-spacing: 0.4px;
+    width: 456px;
+}
+
+.library-card-get-buttons {
+    display: inline-flex;
+    gap: 20px;
+}
+
+.library-card-get-buttons button {
+    display: flex;
+    width: 75px;
+    height: 30px;
+    padding: 10px 0px;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+    border-radius: 2px;
+    border: 1px solid #0C0C0E;
+    background-color: #FFF;
+}
+
+.library-card-get-buttons button:focus {
+    cursor: pointer;
+    border-radius: 2px;
+    border: 1px solid #BB945F;
+    background: #BB945F;
+}
+
+.library-card-get-buttons button:hover {
+    cursor: pointer;
+    border-radius: 2px;
+    border: 1px solid #BB945F;
+}
+
 /* footer */
 
 .footer {
