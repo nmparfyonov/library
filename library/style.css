@@ -1,5 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Forum&family=Inter:wght@400;700&display=swap');
 
+html {
+    scroll-behavior: smooth;
+}
 
 body {
     width: 1440px;
@@ -245,8 +248,86 @@ h1 {
     height: 575px;
     background: #FFF;
     display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+}
+
+.contacts-info {
+    display: inline-flex;
     justify-content: center;
     align-items: flex-start;
+    gap: 199px;
+    width: auto;
+    height: auto;
+    margin: 40px 20px 0px 20px;
+}
+
+.contacts-info-address {
+    width: 505px;
+    height: 380px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 40px;
+    flex-direction: column;
+}
+
+.contacts-info-address-heading {
+    color: #000;
+    text-align: center;
+    font-family: Inter;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 40px;
+    letter-spacing: 2px;
+    text-transform: capitalize;
+}
+
+.contacts-info-address-phone {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 20px;
+    flex-direction: column;
+}
+
+.contacts-info-address-text {
+    color: #000;
+    font-family: Inter;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 40px;
+    letter-spacing: 2px;
+    text-transform: capitalize;
+    height: 40px;
+}
+
+.contacts-info-address-text-bold {
+    color: #000;
+    font-family: Inter;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 40px;
+    letter-spacing: 2px;
+    text-transform: capitalize;
+}
+
+.contacts-info-address-staff {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.contacts-info-map {
+    background: url(./images/map.png), lightgray 50% / cover no-repeat;
+    width: 696px;
+    height: 414px;
 }
 
 /* library card */
