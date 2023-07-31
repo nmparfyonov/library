@@ -1090,3 +1090,8 @@ h1 {
     letter-spacing: 2px;
     text-decoration: none;
 }
+
+.footer a:hover {
+    color: #BB945F;
+    text-decoration: underline;
+}
