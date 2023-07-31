@@ -10,6 +10,14 @@ body {
     background-color: #0C0C0E;
 }
 
+a {
+    transition: 200ms linear;
+}
+
+button {
+    transition: 200ms linear;
+}
+
 /* header */
 header {
     color: #FFFFFF;
@@ -61,7 +69,7 @@ h1 {
 }
 
 .nav-list :hover {
-    text-decoration: underline;
+    color: #BB945F;
 }
 
 .profile {
@@ -1093,5 +1101,4 @@ h1 {
 
 .footer a:hover {
     color: #BB945F;
-    text-decoration: underline;
 }
