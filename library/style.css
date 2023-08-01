@@ -10,11 +10,13 @@ body {
     background-color: #0C0C0E;
 }
 
-a {
-    transition: 200ms linear;
+a svg:hover path {
+    fill: #BB945F;
 }
 
-button {
+a svg path,
+button,
+a {
     transition: 200ms linear;
 }
 
