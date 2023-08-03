@@ -39,121 +39,133 @@
                 <h2 class="welcome-text">Welcome&nbsp;<br>to the Brooklyn<br> Library</h2>
             </div>
         </section>
-        <section class="about" id="about">
-            <h2 class="heading">About</h2>
-            <div class="heading-underline"></div>
-            <span>The Brooklyn Library is a free workspace, a large number of books and a cozy coffee shop inside
-            </span>
-            <ul class="about-images">
-                <li><img src="./images/image1.png" alt="image1"></li>
-                <li><img src="./images/image2.png" alt="image2"></li>
-                <li><img src="./images/image3.png" alt="image3"></li>
-            </ul>
-            <form class="about-pagination">
-                <label class="about-pagination-button"><input type="radio" name="pagination" value="1" checked></label>
-                <label class="about-pagination-button"><input type="radio" name="pagination" value="2"></label>
-                <label class="about-pagination-button"><input type="radio" name="pagination" value="3"></label>
+        <section class="section-container" id="about">
+            <div class="section-heading">
+                <h2>About</h2>
+                <div class="section-heading-underline"></div>
+            </div>
+            <div class="about-content">
+                <span class="about-text">The Brooklyn Library is a free workspace, a large number of books and a cozy
+                    coffee
+                    shop inside
+                </span>
+                <div class="about-images">
+                    <div class="about-images-carousel">
+                        <div class="first-image"></div>
+                        <div class="second-image"></div>
+                        <div class="third-image"></div>
+                    </div>
+                    <form class="about-pagination">
+                        <label class="about-pagination-button"><input type="radio" name="pagination" value="1"
+                                checked></label>
+                        <label class="about-pagination-button"><input type="radio" name="pagination" value="2"></label>
+                        <label class="about-pagination-button"><input type="radio" name="pagination" value="3"></label>
+                    </form>
+                </div>
+            </div>
+        </section>
+        <section class="section-container" id="favorites">
+            <div class="section-heading">
+                <h2>Favorites</h2>
+                <div class="section-heading-underline"></div>
+            </div>
+            <span class="favorites-text">Pick favorites of season</span>
+            <form class="favorites-radio">
+                <label class="favorites-seasons-button"><input type="radio" name="season" value="Winter" checked><span
+                        class="favorites-seasons-button-span-winter">Winter</span></label>
+                <label class="favorites-seasons-button"><input type="radio" name="season" value="Spring"><span
+                        class="favorites-seasons-button-span-spring">Spring</span></label>
+                <label class="favorites-seasons-button"><input type="radio" name="season" value="Summer"><span
+                        class="favorites-seasons-button-span-summer">Summer</span></label>
+                <label class="favorites-seasons-button"><input type="radio" name="season" value="Autumn"><span
+                        class="favorites-seasons-button-span-autumn">Autumn</span></label>
             </form>
-        </section>
-        <section class="favorites" id="favorites">
-            <h2 class="heading">Favorites</h2>
-            <div class="heading-underline"></div>
-            <div class="favorites-content">
-                <span class="favorites-heading">Pick favorites of season</span>
-                <form class="favorites-radio">
-                    <label class="favorites-seasons-button"><input type="radio" name="season" value="Winter"
-                            checked><span class="favorites-seasons-button-span-winter">Winter</span></label>
-                    <label class="favorites-seasons-button"><input type="radio" name="season" value="Spring"><span
-                            class="favorites-seasons-button-span-spring">Spring</span></label>
-                    <label class="favorites-seasons-button"><input type="radio" name="season" value="Summer"><span
-                            class="favorites-seasons-button-span-summer">Summer</span></label>
-                    <label class="favorites-seasons-button"><input type="radio" name="season" value="Autumn"><span
-                            class="favorites-seasons-button-span-autumn">Autumn</span></label>
-                </form>
-            </div>
             <div class="favorites-items">
-                <div class="favorites-items-row">
-                    <div class="favorites-card">
-                        <div class="favorites-card-frame">
-                            <span class="favorites-card-span-staff">Staff Picks</span>
-                            <div class="favorites-card-staff-underline"></div>
-                            <div class="favorites-book-name-author">
-                                <span class="favorites-book-name">The Book Eaters</span>
-                                <span class="favorites-book-author">By Sunyi Dean</span>
-                                <span class="favorites-book-description">An unusual sci-fi story about a book eater
-                                    woman who tries desperately to save her dangerous mind-eater son from tradition and
-                                    certain death. Complete with dysfunctional family values, light Sapphic romance, and
-                                    a strong, complex protagonist. Not for the faint of heart.</span>
-                                <form class="favorites-buy-form">
-                                    <button class="favorites-buy-book-button" type="submit">Buy</button>
-                                </form>
-                            </div>
+                <div class="favorites-card">
+                    <div class="favorites-card-frame">
+                        <span class="favorites-card-span-staff">Staff Picks</span>
+                        <div class="favorites-card-staff-underline"></div>
+                        <div class="favorites-book-name-author">
+                            <span class="favorites-book-name">The Book Eaters</span>
+                            <span class="favorites-book-author">By Sunyi Dean</span>
+                            <span class="favorites-book-description">An unusual sci-fi story about a book eater
+                                woman who tries desperately to save her dangerous mind-eater son from tradition
+                                and
+                                certain death. Complete with dysfunctional family values, light Sapphic romance,
+                                and
+                                a strong, complex protagonist. Not for the faint of heart.</span>
+                            <form class="favorites-buy-form">
+                                <button class="favorites-buy-book-button" type="submit">Buy</button>
+                            </form>
                         </div>
-                        <img class="favorites-book-img" alt="book1" src="./images/book1.png">
                     </div>
-                    <div class="favorites-card">
-                        <div class="favorites-card-frame">
-                            <span class="favorites-card-span-staff">Staff Picks</span>
-                            <div class="favorites-card-staff-underline"></div>
-                            <div class="favorites-book-name-author">
-                                <span class="favorites-book-name">Cackle</span>
-                                <span class="favorites-book-author">By Rachel Harrison</span>
-                                <span class="favorites-book-description">Are your Halloween movies of choice The Witches
-                                    of Eastwick and Practical Magic? Look no further than here - where a woman
-                                    recovering from a breakup moves to a quaint town in upstate New York and befriends a
-                                    beautiful witch.</span>
-                                <form class="favorites-buy-form">
-                                    <button class="favorites-buy-book-button" type="submit">Buy</button>
-                                </form>
-                            </div>
-                        </div>
-                        <img class="favorites-book-img" alt="book2" src="./images/book2.png">
-                    </div>
+                    <img class="favorites-book-img" alt="book1" src="./images/book1.png">
                 </div>
-                <div class="favorites-items-row">
-                    <div class="favorites-card">
-                        <div class="favorites-card-frame">
-                            <span class="favorites-card-span-staff">Staff Picks</span>
-                            <div class="favorites-card-staff-underline"></div>
-                            <div class="favorites-book-name-author">
-                                <span class="favorites-book-name">Dante: Poet of the Secular World</span>
-                                <span class="favorites-book-author">By Erich Auerbach</span>
-                                <span class="favorites-book-description">Auerbach's engaging book places the 'Comedy'
-                                    within the tradition of epic, tragedy, and philosophy in general, arguing for
-                                    Dante's uniqueness as one who raised the individual and his drama of soul into
-                                    something of divine significance—an inspired introduction to Dante's main
-                                    themes.</span>
-                                <form class="favorites-buy-form">
-                                    <button class="favorites-buy-book-button" type="submit">Buy</button>
-                                </form>
-                            </div>
+                <div class="favorites-card">
+                    <div class="favorites-card-frame">
+                        <span class="favorites-card-span-staff">Staff Picks</span>
+                        <div class="favorites-card-staff-underline"></div>
+                        <div class="favorites-book-name-author">
+                            <span class="favorites-book-name">Cackle</span>
+                            <span class="favorites-book-author">By Rachel Harrison</span>
+                            <span class="favorites-book-description">Are your Halloween movies of choice The
+                                Witches
+                                of Eastwick and Practical Magic? Look no further than here - where a woman
+                                recovering from a breakup moves to a quaint town in upstate New York and
+                                befriends a
+                                beautiful witch.</span>
+                            <form class="favorites-buy-form">
+                                <button class="favorites-buy-book-button" type="submit">Buy</button>
+                            </form>
                         </div>
-                        <img class="favorites-book-img" alt="book3" src="./images/book3.png">
                     </div>
-                    <div class="favorites-card">
-                        <div class="favorites-card-frame">
-                            <span class="favorites-card-span-staff">Staff Picks</span>
-                            <div class="favorites-card-staff-underline"></div>
-                            <div class="favorites-book-name-author">
-                                <span class="favorites-book-name">The Last Queen</span>
-                                <span class="favorites-book-author">By Clive Irving</span>
-                                <span class="favorites-book-description">A timely and revelatory new biography of Queen
-                                    Elizabeth (and her family) exploring how the Windsors have evolved and thrived as
-                                    the modern world has changed around them.</span>
-                                <form class="favorites-buy-form">
-                                    <button class="favorites-own-book-button" type="submit" disabled>Own</button>
-                                </form>
-                            </div>
+                    <img class="favorites-book-img" alt="book2" src="./images/book2.png">
+                </div>
+                <div class="favorites-card">
+                    <div class="favorites-card-frame">
+                        <span class="favorites-card-span-staff">Staff Picks</span>
+                        <div class="favorites-card-staff-underline"></div>
+                        <div class="favorites-book-name-author">
+                            <span class="favorites-book-name">Dante: Poet of the Secular World</span>
+                            <span class="favorites-book-author">By Erich Auerbach</span>
+                            <span class="favorites-book-description">Auerbach's engaging book places the
+                                'Comedy'
+                                within the tradition of epic, tragedy, and philosophy in general, arguing for
+                                Dante's uniqueness as one who raised the individual and his drama of soul into
+                                something of divine significance—an inspired introduction to Dante's main
+                                themes.</span>
+                            <form class="favorites-buy-form">
+                                <button class="favorites-buy-book-button" type="submit">Buy</button>
+                            </form>
                         </div>
-                        <img class="favorites-book-img" alt="book4" src="./images/book4.png">
                     </div>
+                    <img class="favorites-book-img" alt="book3" src="./images/book3.png">
+                </div>
+                <div class="favorites-card">
+                    <div class="favorites-card-frame">
+                        <span class="favorites-card-span-staff">Staff Picks</span>
+                        <div class="favorites-card-staff-underline"></div>
+                        <div class="favorites-book-name-author">
+                            <span class="favorites-book-name">The Last Queen</span>
+                            <span class="favorites-book-author">By Clive Irving</span>
+                            <span class="favorites-book-description">A timely and revelatory new biography of
+                                Queen
+                                Elizabeth (and her family) exploring how the Windsors have evolved and thrived
+                                as
+                                the modern world has changed around them.</span>
+                            <form class="favorites-buy-form">
+                                <button class="favorites-own-book-button" type="submit" disabled>Own</button>
+                            </form>
+                        </div>
+                    </div>
+                    <img class="favorites-book-img" alt="book4" src="./images/book4.png">
                 </div>
             </div>
         </section>
-        <section class="coffee-shop" id="coffeeshop">
-            <div class="coffee-shop-title">
-                <h2 class="heading">Coffee shop</h2>
-                <div class="heading-underline"></div>
+        <section class="section-container" id="coffeeshop">
+            <div class="section-heading">
+                <h2>Coffee shop</h2>
+                <div class="section-heading-underline"></div>
             </div>
             <span class="coffee-shop-text">In our library, we have of cozy coffee shop, welcoming in customers with
                 frothy cappuccinos and friendly conversation.
@@ -228,9 +240,11 @@
                 </div>
             </div>
         </section>
-        <section class="contacts" id="contacts">
-            <h2 class="heading">Our Contacts</h2>
-            <div class="heading-underline"></div>
+        <section class="section-container" id="contacts">
+            <div class="section-heading">
+                <h2>Our Contacts</h2>
+                <div class="section-heading-underline"></div>
+            </div>
             <div class="contacts-info">
                 <div class="contacts-info-address">
                     <span class="contacts-info-address-heading">For all Library inquiries:</span>
@@ -254,9 +268,11 @@
                 <div class="contacts-info-map"></div>
             </div>
         </section>
-        <section class="library-card" id="librarycard">
-            <h2 class="heading">Digital Library Cards</h2>
-            <div class="heading-underline"></div>
+        <section class="section-container" id="librarycard">
+            <div class="section-heading">
+                <h2>Digital Library Cards</h2>
+                <div class="section-heading-underline"></div>
+            </div>
             <div class="library-card-content">
                 <div class="library-card-find">
                     <span class="library-card-find-heading">Find your Library card</span>
@@ -285,14 +301,11 @@
         </section>
     </main>
     <footer class="footer">
-        <div class="footer-social">
-            <div class="footer-uppersection">
-                <div class="address"><a class="address-link" target="_blank"
+        <div class="footer-info">
+            <div class="footer-info-map-social">
+                <div class="footer-address"><a class="address-link" target="_blank"
                         href="https://www.google.com/maps/place/286+Cadman+Plaza+W,+Brooklyn,+NY+11201,+%D0%A1%D0%A8%D0%90/@40.6956458,-73.9912976,17z/data=!3m1!4b1!4m6!3m5!1s0x89c25a49b649b8c3:0x6342a2291cea2e!8m2!3d40.6956458!4d-73.9912976!16s%2Fg%2F11s2lgz8ns?entry=ttu">286
                         Cadman Plaza, New York, NY 11238, United States</a></div>
-                <div class="weekdays">Mon - Fri<br>08:00 am - 07:00 pm</div>
-            </div>
-            <div class="footer-middlesection">
                 <ul class="footer-social-media">
                     <li><a target="_blank" href="https://twitter.com"><svg width="24" height="24" viewBox="0 0 24 24"
                                 fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -320,16 +333,20 @@
                                 </g>
                             </svg></a></li>
                 </ul>
-                <div class="weekenddays">Sat - Sun<br>10:00 am - 06:00 pm</div>
             </div>
+            <div class="footer-info-timetable">
+                <div class="days">Mon - Fri<br>08:00 am - 07:00 pm</div>
+                <div class="days">Sat - Sun<br>10:00 am - 06:00 pm</div>
+            </div>
+        </div>
         </div>
         <div class="footer-separator"></div>
         <div class="footer-rs-info">
             <span class="footer-rs-info-year">2023</span>
             <div class="footer-rs-info-rs-block"><a href="https://rs.school/js-stage0/" target="_blank"
                     class="footer-rs-info-rs-link">The Rolling Scopes School</a></div>
-            <span class="footer-me-block"><a href="https://github.com/nmparfyonov" target="_blank"
-                    class="footer-me-link">Nikita</a></span>
+            <div class="footer-me-block"><a href="https://github.com/nmparfyonov" target="_blank"
+                    class="footer-me-link">Nikita</a></div>
         </div>
     </footer>
 </body>
