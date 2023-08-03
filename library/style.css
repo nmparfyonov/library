@@ -1180,6 +1180,7 @@ h1 {
 
     .hamburger-menu.menu-active .icon-cross {
         display: flex;
+        margin-left: -2px;
     }
 
     .hamburger-menu.menu-active .icon-burger {
