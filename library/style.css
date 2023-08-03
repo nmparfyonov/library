@@ -9,14 +9,19 @@ body {
     max-width: 1440px;
     min-width: 640px;
     margin: auto;
-    background-color: #FFF;
+    background-color: #0C0C0E;
 }
 
 a svg:hover path {
     fill: #BB945F;
 }
 
+a svg:hover line {
+    stroke: #BB945F;
+}
+
 a svg path,
+a svg line,
 button,
 a {
     transition: 200ms linear;
@@ -90,6 +95,17 @@ h1 {
     height: 28px;
     width: 28px;
     display: inline-flex;
+}
+
+.hamburger-menu a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: auto;
+}
+
+.hamburger-menu {
+    display: none;
 }
 
 /* welcome */
@@ -238,6 +254,14 @@ h1 {
 .about-pagination {
     display: inline-flex;
     justify-content: center;
+}
+
+#radio4 {
+    display: none;
+}
+
+#radio5 {
+    display: none;
 }
 
 .about-pagination-button {
@@ -1094,9 +1118,13 @@ h1 {
 }
 
 
-@media screen and (max-width: 1000px) {
+@media screen and (max-width: 1024px) {
     .nav {
         display: none;
+    }
+
+    .hamburger-menu {
+        display: flex;
     }
 }
 
@@ -1110,11 +1138,19 @@ h1 {
     .third-image {
         display: none;
     }
+
+    #radio4 {
+        display: flex;
+    }
 }
 
 @media screen and (max-width: 964px) {
     .second-image {
         display: none;
+    }
+
+    #radio5 {
+        display: flex;
     }
 
     .about-images {
