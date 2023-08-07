@@ -28,6 +28,15 @@ a {
     text-decoration: none;
 }
 
+header button,
+.about-images-carousel button {
+    padding: 0;
+    border: none;
+    font: inherit;
+    color: inherit;
+    background-color: transparent;
+    cursor: pointer;
+}
 
 /* header */
 header {
@@ -39,15 +48,6 @@ header {
     align-items: center;
     justify-content: space-between;
     padding: 20px;
-}
-
-header button {
-    padding: 0;
-    border: none;
-    font: inherit;
-    color: inherit;
-    background-color: transparent;
-    cursor: pointer;
 }
 
 .logo {
@@ -246,24 +246,36 @@ h1 {
     flex-shrink: 0;
     display: flex;
     justify-content: center;
+    align-items: center;
     gap: 25px;
     padding: 0%;
     margin: 0%;
 }
 
+.about-images-carousel-carret-buttons {
+    display: none;
+    align-content: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+}
+
 .first-image {
     background: url(./images/image1.png);
     width: 450px;
+    height: 100%;
 }
 
 .second-image {
     background: url(./images/image2.png);
     width: 450px;
+    height: 100%;
 }
 
 .third-image {
     background: url(./images/image3.png);
     width: 450px;
+    height: 100%;
 }
 
 .about-pagination {
@@ -1208,12 +1220,21 @@ h1 {
         display: none;
     }
 
+    .about-images-carousel-carret-buttons {
+        display: flex;
+        margin-top: 40px;
+    }
+
+    .about-images-carousel {
+        gap: 58px
+    }
+
     #radio4 {
         display: flex;
     }
 }
 
-@media screen and (max-width: 964px) {
+@media screen and (max-width: 1161px) {
     .second-image {
         display: none;
     }
