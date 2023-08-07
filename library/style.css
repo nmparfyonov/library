@@ -269,6 +269,7 @@ h1 {
 .about-pagination {
     display: inline-flex;
     justify-content: center;
+    margin-bottom: -5px;
 }
 
 #radio4 {
@@ -1222,10 +1223,6 @@ h1 {
 
     .about-images {
         gap: 20px;
-    }
-
-    .about-pagination {
-        margin-bottom: -5px;
     }
 }
 
