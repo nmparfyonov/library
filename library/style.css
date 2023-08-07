@@ -16,12 +16,14 @@ a svg:hover path {
     fill: #BB945F;
 }
 
+button svg:hover path,
 button svg:hover line {
     stroke: #BB945F;
 }
 
 a svg path,
 button svg line,
+button svg path,
 button,
 a {
     transition: 200ms linear;
