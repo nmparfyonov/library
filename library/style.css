@@ -1203,7 +1203,9 @@ h1 {
 
     .hamburger-menu.menu-active .icon-cross {
         display: flex;
-        margin-left: -2px;
+        margin-left: 4.5px;
+        margin-right: 4.5px;
+
     }
 
     .hamburger-menu.menu-active .icon-burger {
