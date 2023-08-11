@@ -15,6 +15,12 @@ document.addEventListener("DOMContentLoaded", function () {
         }
         )
     });
-
-
+    document.addEventListener("click", (event) => {
+        if (!hamburgerMenu.contains(event.target) && !navMenu.contains(event.target)) {
+            hamburgerMenu.classList.remove("menu-active");
+            navMenu.classList.remove("menu-active");
+        }
+    });
 });
+
+
