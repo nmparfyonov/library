@@ -23,4 +23,6 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 
+console.log('Все требования выполнены, соответствует макету 50/50')
+
 
