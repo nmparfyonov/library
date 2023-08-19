@@ -21,8 +21,35 @@ document.addEventListener("DOMContentLoaded", function () {
             navMenu.classList.remove("menu-active");
         }
     });
-});
 
-console.log('Все требования выполнены, соответствует макету 50/50')
+    const prevButton = document.getElementById("carret-left");
+    const nextButton = document.getElementById("carret-right");
+    const carouselImages = document.querySelector(".about-carousel-images");
+    const radioButtons = document.querySelectorAll('input[name="pagination"]');
+    let currentIndex = 0;
+
+    nextButton.addEventListener("click", () => {
+        currentIndex = (currentIndex + 1) % carouselImages.children.length;
+        updateCarousel();
+    });
+
+    prevButton.addEventListener("click", () => {
+        currentIndex = (currentIndex - 1 + carouselImages.children.length) % carouselImages.children.length;
+        updateCarousel();
+    });
+
+    radioButtons.forEach((radio, index) => {
+        radio.addEventListener("change", () => {
+            currentIndex = index;
+            updateCarousel();
+        });
+    });
+
+    function updateCarousel() {
+        const offset = -currentIndex * 475;
+        carouselImages.style.transform = `translateX(${offset}px)`;
+        radioButtons[currentIndex].checked = true;
+    }
+});
 
 
