@@ -49,6 +49,7 @@ document.addEventListener("DOMContentLoaded", function () {
         const offset = -currentIndex * 475;
         carouselImages.style.transform = `translateX(${offset}px)`;
         radioButtons[currentIndex].checked = true;
+        [...radioButtons].map((button, index) => index === currentIndex ? button.disabled = true : button.disabled = false);
         nextButton.disabled = currentIndex === carouselImages.children.length - 1 ? true : false;
         prevButton.disabled = currentIndex === 0 ? true : false;
     }
