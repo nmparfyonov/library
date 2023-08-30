@@ -21,6 +21,10 @@ button svg:hover line {
     stroke: #BB945F;
 }
 
+.about-images-carousel-carret-buttons[disabled] svg path {
+    stroke: #8E8E8E;
+}
+
 a svg path,
 button svg line,
 button svg path,
@@ -304,10 +308,6 @@ h1 {
     padding: 0%;
 }
 
-.about-pagination-button:hover {
-    cursor: pointer;
-}
-
 .about-pagination input[type=radio] {
     visibility: hidden;
     position: relative;
@@ -337,6 +337,7 @@ h1 {
 
 .about-pagination input[type=radio]:checked:before {
     background-color: #BB945F;
+    cursor: auto;
 }
 
 /* favorites */
@@ -1234,7 +1235,6 @@ h1 {
 
     .about-carousel {
         gap: 58px;
-
     }
 
     #radio4 {
