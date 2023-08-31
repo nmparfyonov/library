@@ -139,7 +139,7 @@ h1 {
 
 .welcome {
     background: linear-gradient(180deg, #0C0C0E 0%, #0C0C0E 0.01%, rgba(18, 18, 21, 0.10) 50%),
-        url(./images/Welcome.jpeg) lightgray 50% / cover no-repeat;
+        url(./assets/images/Welcome.jpeg) lightgray 50% / cover no-repeat;
     height: 600px;
     width: 100%;
     display: flex;
@@ -391,7 +391,7 @@ h1 {
     position: absolute;
     height: 17x;
     width: 17px;
-    background: url(./icons/radio.svg), #FFF 50% / cover no-repeat;
+    background: url(./assets/icons/radio.svg), #FFF 50% / cover no-repeat;
     top: 0;
     right: 0;
     bottom: 0;
@@ -399,7 +399,7 @@ h1 {
 }
 
 .favorites-seasons-button input[type=radio]:checked:before {
-    background: url(./icons/radio-check.svg), #FFF 50% / cover no-repeat;
+    background: url(./assets/icons/radio-check.svg), #FFF 50% / cover no-repeat;
 }
 
 .favorites-seasons-button input[type=radio]:checked+span {
@@ -810,7 +810,7 @@ h1 {
 }
 
 .contacts-info-map {
-    background: url(./images/map.png) lightgray 50% / cover no-repeat;
+    background: url(./assets/images/map.png) lightgray 50% / cover no-repeat;
     width: 696px;
     height: 414px;
     margin-left: auto;
