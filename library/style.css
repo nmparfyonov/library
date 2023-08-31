@@ -341,16 +341,16 @@ h1 {
 }
 
 /* favorites */
-.spring {
+.season-books {
+    opacity: 0;
+    transition: opacity 300ms linear;
     display: none;
 }
 
-.summer {
-    display: none;
-}
-
-.autumn {
-    display: none;
+.season-books.show {
+    opacity: 1;
+    transition: opacity 300ms linear;
+    display: block;
 }
 
 .favorites-content {

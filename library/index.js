@@ -53,6 +53,24 @@ document.addEventListener("DOMContentLoaded", function () {
         nextButton.disabled = currentIndex === carouselImages.children.length - 1 ? true : false;
         prevButton.disabled = currentIndex === 0 ? true : false;
     }
+
+    const seasonButtons = document.querySelectorAll('input[name="season"]');
+    const seasons = document.querySelectorAll('.season-books');
+    let seasonPageIndex = 0;
+    seasonButtons.forEach((radio, index) => {
+        radio.addEventListener("change", () => {
+            hideBooks();
+            seasonPageIndex = index;
+            showBooks();
+        });
+    });
+
+    function showBooks() {
+        seasons[seasonPageIndex].classList.add('show');
+    }
+    function hideBooks() {
+        seasons[seasonPageIndex].classList.remove('show');
+    }
 });
 
 
