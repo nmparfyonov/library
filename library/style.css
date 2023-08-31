@@ -341,6 +341,18 @@ h1 {
 }
 
 /* favorites */
+.spring {
+    display: none;
+}
+
+.summer {
+    display: none;
+}
+
+.autumn {
+    display: none;
+}
+
 .favorites-content {
     display: flex;
     flex-direction: column;
