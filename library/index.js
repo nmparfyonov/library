@@ -84,8 +84,13 @@ document.addEventListener("DOMContentLoaded", function () {
 
     const registerButtons = document.querySelectorAll('button[name="register"]');
     const registerModal = document.querySelector('#register-modal');
-    const authModal = document.querySelector('.auth-modal');
-    const closeRegisterModal = document.querySelector('.close-modal');
+    const registerAuthModal = document.querySelector('#register-auth-modal');
+    const closeRegisterModal = document.querySelector('#register-close-modal-button');
+    const loginButtons = document.querySelectorAll('button[name="login"]');
+    const loginModal = document.querySelector('#login-modal');
+    const loginAuthModal = document.querySelector('#login-auth-modal');
+    const closeLoginModal = document.querySelector('#login-close-modal-button');
+    const switchAuthModals = document.querySelectorAll('.auth-footer-link');
     registerButtons.forEach((button) => {
         button.addEventListener("click", () => {
             registerModal.classList.add("show");
@@ -93,12 +98,32 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
     registerModal.addEventListener("click", (event) => {
-        if (!authModal.contains(event.target)) {
+        if (!registerAuthModal.contains(event.target)) {
             registerModal.classList.remove("show");
         }
     });
     closeRegisterModal.addEventListener("click", () => {
         registerModal.classList.remove("show");
+    });
+    loginButtons.forEach((button) => {
+        button.addEventListener("click", () => {
+            loginModal.classList.add("show");
+            profileMenu.classList.remove("menu-active");
+        });
+    });
+    loginModal.addEventListener("click", (event) => {
+        if (!loginAuthModal.contains(event.target)) {
+            loginModal.classList.remove("show");
+        }
+    });
+    closeLoginModal.addEventListener("click", () => {
+        loginModal.classList.remove("show");
+    });
+    switchAuthModals.forEach((link) => {
+        link.addEventListener("click", () => {
+            loginModal.classList.toggle("show");
+            registerModal.classList.toggle("show");
+        });
     });
 });
 
