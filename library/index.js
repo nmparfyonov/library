@@ -20,6 +20,16 @@ document.addEventListener("DOMContentLoaded", function () {
             hamburgerMenu.classList.remove("menu-active");
             navMenu.classList.remove("menu-active");
         }
+        if (!profileButton.contains(event.target) && !profileMenu.contains(event.target)) {
+            profileMenu.classList.remove("menu-active");
+        }
+    });
+
+    const profileButton = document.querySelector(".profile");
+    const profileMenu = document.querySelector(".profile-menu");
+
+    profileButton.addEventListener("click", () => {
+        profileMenu.classList.toggle("menu-active");
     });
 
     const prevButton = document.getElementById("carret-left");
