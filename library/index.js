@@ -83,7 +83,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     const registerButtons = document.querySelectorAll('button[name="register"]');
-    const registerModal = document.querySelector('.form-modal-background');
+    const registerModal = document.querySelector('#register-modal');
     const authModal = document.querySelector('.auth-modal');
     const closeRegisterModal = document.querySelector('.close-modal');
     registerButtons.forEach((button) => {
