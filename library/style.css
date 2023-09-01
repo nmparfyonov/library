@@ -404,7 +404,6 @@ h1 {
 .season-books-container {
     display: flex;
     justify-content: center;
-    max-width: auto;
 }
 
 .season-books {
@@ -412,6 +411,7 @@ h1 {
     transition: opacity 200ms linear, z-index 0ms linear 200ms;
     position: absolute;
     z-index: -2;
+    margin: 0px 20px 0px 20px;
     max-width: 1400px;
 }
 
@@ -420,6 +420,7 @@ h1 {
     transition: opacity 200ms linear 200ms, z-index 0ms linear 200ms;
     position: relative;
     z-index: 1;
+    margin: 0px;
 }
 
 .favorites-content {
