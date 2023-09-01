@@ -1334,13 +1334,13 @@ h1 {
     #radio4 {
         display: flex;
     }
-}
 
-@media screen and (max-width: 1131px) {
     #radio5 {
         display: flex;
     }
+}
 
+@media screen and (max-width: 1131px) {
     .about-images {
         gap: 20px;
     }
