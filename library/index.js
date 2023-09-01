@@ -81,6 +81,23 @@ document.addEventListener("DOMContentLoaded", function () {
     function hideBooks() {
         seasons[seasonPageIndex].classList.remove('show');
     }
+
+    const registerButton = document.querySelector('button[name="register"]');
+    const registerModal = document.querySelector('.form-modal-background');
+    const authModal = document.querySelector('.auth-modal');
+    const closeRegisterModal = document.querySelector('.close-modal');
+    registerButton.addEventListener("click", () => {
+        registerModal.classList.add("show");
+        profileMenu.classList.remove("menu-active");
+    });
+    registerModal.addEventListener("click", (event) => {
+        if (!authModal.contains(event.target)) {
+            registerModal.classList.remove("show");
+        }
+    });
+    closeRegisterModal.addEventListener("click", () => {
+        registerModal.classList.remove("show");
+    });
 });
 
 

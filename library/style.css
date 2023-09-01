@@ -36,6 +36,8 @@ a {
 }
 
 header button,
+.close-modal,
+.auth-footer-link,
 .about-carousel button {
     padding: 0;
     border: none;
@@ -164,6 +166,10 @@ h1 {
     font-style: normal;
     font-weight: 400;
     line-height: 20px;
+}
+
+.profile-menu-button:hover {
+    color: #BB945F;
 }
 
 .profile-heading-underline {
@@ -1232,11 +1238,154 @@ h1 {
     color: #BB945F;
 }
 
+/* Auth */
+.form-modal-background {
+    display: none;
+    position: fixed;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-width: 1440px;
+    height: 100%;
+    z-index: 10;
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+.form-modal-background.show {
+    display: flex;
+}
+
+.auth-modal {
+    padding: 20px 25px 20px 25px;
+    background-color: #FFF;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    height: fit-content;
+    position: absolute;
+    z-index: 11;
+}
+
+.auth-modal-form {
+    background-color: #FFF;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.close-modal {
+    right: 13px;
+    top: 13px;
+    width: 19px;
+    height: 19px;
+    position: absolute;
+}
+
+.auth-modal-heading {
+    color: #000;
+    text-align: center;
+    font-family: Forum;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20px;
+    letter-spacing: 0.4px;
+    text-transform: uppercase;
+}
+
+.auth-modal-fields {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 10px;
+}
+
+.auth-modal-fields-field {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+}
+
+.auth-modal-fields-field-heading {
+    color: #000;
+    text-align: center;
+    font-family: Inter;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20px;
+    letter-spacing: 0.3px;
+}
+
+.auth-modal-fields-field-input {
+    width: 198px;
+    height: 18px;
+    border: 1px solid #BB945F;
+    padding: 0px;
+}
+
+.auth-submit-form {
+    width: 75px;
+    height: 30px;
+    border-radius: 2px;
+    border: 1px solid #0C0C0E;
+    color: #000;
+    background-color: #FFF;
+    text-align: center;
+    font-family: Inter;
+    font-size: 10px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    letter-spacing: 1px;
+}
+
+.auth-submit-form:hover {
+    cursor: pointer;
+    border: 1px solid #BB945F;
+    background: #BB945F
+}
+
+.auth-modal-footer {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+}
+
+.auth-modal-footer-text {
+    color: #000;
+    text-shadow: 0px 2px 3px rgba(255, 255, 255, 0.16);
+    font-family: Inter;
+    font-size: 10px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.auth-footer-link {
+    color: #0C0C0E;
+    text-align: center;
+    font-family: Inter;
+    font-size: 10px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    letter-spacing: 1px;
+    text-decoration-line: underline;
+}
+
+.auth-footer-link:hover {
+    color: #BB945F;
+}
+
+/* Media*/
+
 @media screen and (max-width: 768px) {
     .favorites-radio {
         position: sticky;
         top: 0;
-        z-index: 100;
+        z-index: 5;
         background-color: #FFF;
         padding: 20px 0px 20px 0px;
         margin: -20px 0px -20px 0px;
