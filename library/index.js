@@ -125,6 +125,18 @@ document.addEventListener("DOMContentLoaded", function () {
             registerModal.classList.toggle("show");
         });
     });
+    const email = registerAuthModal.querySelector('input[name="email"]');
+    const name = registerAuthModal.querySelector('input[name="name"]');
+    const surname = registerAuthModal.querySelector('input[name="surname"]');
+    const password = registerAuthModal.querySelector('input[name="password"]');
+    const registerSubmitButton = registerAuthModal.querySelector('.auth-submit-form');
+    registerSubmitButton.addEventListener("click", () => {
+        localStorage.setItem(email.value, JSON.stringify({ "password": password.value, "name": name.value, "surname": surname.value, "authorized": true, "cardnumber": getCardNumber() }));
+    });
+    const getCardNumber = () => {
+        const timestamp = Date.now() + Math.round(Math.random() * 10);
+        return timestamp.toString(16).slice(-9).toUpperCase();
+    };
 });
 
 

@@ -13,7 +13,7 @@
 <body>
     <div class="form-modal-background" id="register-modal">
         <div class="auth-modal" id="register-auth-modal">
-            <form class="auth-modal-form" name="auth">
+            <form class="auth-modal-form" name="auth" method="post">
                 <button type="button" class="close-modal" id="register-close-modal-button"><svg
                         xmlns="http://www.w3.org/2000/svg" width="19" height="19" viewBox="0 0 19 19" fill="none">
                         <path d="M2 16.8507L17 2.00003" stroke="#0C0C0E" stroke-width="3" />
@@ -39,7 +39,7 @@
                         <input type="text" name="password" class="auth-modal-fields-field-input" minlength="8" required>
                     </div>
                 </div>
-                <button class="auth-submit-form" type="submit" name="auth">Sign Up</button>
+                <input class="auth-submit-form" type="submit" name="auth" value="Sign Up">
             </form>
             <div class="auth-modal-footer">
                 <span class="auth-modal-footer-text">Already have an account?</span>
@@ -49,7 +49,7 @@
     </div>
     <div class="form-modal-background" id="login-modal">
         <div class="auth-modal" id="login-auth-modal">
-            <form class="auth-modal-form" name="auth">
+            <form class="auth-modal-form" name="auth" method="post">
                 <button type="button" class="close-modal" id="login-close-modal-button"><svg
                         xmlns="http://www.w3.org/2000/svg" width="19" height="19" viewBox="0 0 19 19" fill="none">
                         <path d="M2 16.8507L17 2.00003" stroke="#0C0C0E" stroke-width="3" />
@@ -67,7 +67,7 @@
                         <input type="text" name="password" class="auth-modal-fields-field-input" minlength="8" required>
                     </div>
                 </div>
-                <button class="auth-submit-form" type="submit" name="auth">Log In</button>
+                <input class="auth-submit-form" type="submit" name="auth" value="Log In">
             </form>
             <div class="auth-modal-footer">
                 <span class="auth-modal-footer-text">Don&apos;t have an account?</span>
