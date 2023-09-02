@@ -969,7 +969,7 @@ h1 {
     margin: 20px 0px 0px 20px;
 }
 
-.library-card-find-form-inputs input {
+.library-card-find-form-inputs input[type="text"] {
     width: 500px;
     height: 50px;
     flex-shrink: 0;
@@ -987,7 +987,7 @@ h1 {
     padding: 8px 0px 8px 20px;
 }
 
-.library-card-find-form-inputs input:focus {
+.library-card-find-form-inputs input[type="text"]:focus {
     color: #BB945F;
 }
 
@@ -997,7 +997,7 @@ h1 {
     align-items: center;
 }
 
-.library-card-find-form-inputs button {
+.library-card-find-form-inputs input[type="submit"] {
     color: #0C0C0E;
     text-align: center;
     font-family: Inter;
@@ -1015,14 +1015,14 @@ h1 {
     background-color: #FFF;
 }
 
-.library-card-find-form-inputs button:focus {
+.library-card-find-form-inputs input[type="submit"]:focus {
     cursor: pointer;
     border-radius: 2px;
     border: 1px solid #BB945F;
     background: #FFF;
 }
 
-.library-card-find-form-inputs button:hover {
+.library-card-find-form-inputs input[type="submit"]:hover {
     cursor: pointer;
     border-radius: 2px;
     border: 1px solid #BB945F;

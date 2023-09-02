@@ -125,6 +125,17 @@ document.addEventListener("DOMContentLoaded", function () {
             registerModal.classList.toggle("show");
         });
     });
+
+
+    const showLoginModal = () => {
+        loginModal.classList.add("show");
+    };
+    const buyBookButtons = document.querySelectorAll('.favorites-buy-book-button');
+    buyBookButtons.forEach((button) => {
+        button.addEventListener("click", showLoginModal);
+    });
+
+
     const email = registerAuthModal.querySelector('input[name="email"]');
     const name = registerAuthModal.querySelector('input[name="name"]');
     const surname = registerAuthModal.querySelector('input[name="surname"]');

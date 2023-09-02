@@ -659,10 +659,10 @@
                     <div class="library-card-find-form">
                         <div class="library-card-find-form-inputs">
                             <span>Brooklyn Public Library</span>
-                            <form>
-                                <input type="text" placeholder="Reader&#39;s name ">
-                                <input type="text" placeholder="Card number">
-                                <button type="submit">Check the card</button>
+                            <form method="post">
+                                <input type="text" placeholder="Reader&#39;s name" required>
+                                <input type="text" placeholder="Card number" minlength="9" maxlength="9" required>
+                                <input type="submit" value="Check the card">
                             </form>
                         </div>
                     </div>
