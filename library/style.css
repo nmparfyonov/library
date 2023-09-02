@@ -1409,7 +1409,7 @@ h1 {
     .nav.menu-active {
         display: flex;
         position: absolute;
-        right: 0%;
+        right: 0px;
         background-color: #0C0C0E;
         padding: 10px 107px 100px 107px;
         flex-direction: column;
