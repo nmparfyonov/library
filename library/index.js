@@ -135,19 +135,58 @@ document.addEventListener("DOMContentLoaded", function () {
         button.addEventListener("click", showLoginModal);
     });
 
-
     const email = registerAuthModal.querySelector('input[name="email"]');
     const name = registerAuthModal.querySelector('input[name="name"]');
     const surname = registerAuthModal.querySelector('input[name="surname"]');
     const password = registerAuthModal.querySelector('input[name="password"]');
     const registerSubmitButton = registerAuthModal.querySelector('.auth-submit-form');
     registerSubmitButton.addEventListener("click", () => {
-        localStorage.setItem(email.value, JSON.stringify({ "password": password.value, "name": name.value, "surname": surname.value, "authorized": true, "cardnumber": getCardNumber() }));
+        const cardNumber = getCardNumber();
+        const currentUsers = JSON.parse(localStorage.getItem('users')) || [];
+        const currentCredentials = JSON.parse(localStorage.getItem('credentials')) || [];
+        currentUsers.push({
+            "id": cardNumber,
+            "data": {
+                "email": email.value,
+                "password": password.value,
+                "name": name.value,
+                "surname": surname.value,
+                "cardnumber": cardNumber
+            }
+        });
+        currentCredentials.push({
+            "id": cardNumber,
+            "email": email.value,
+            "password": password.value
+        });
+        localStorage.setItem("users", JSON.stringify(currentUsers));
+        localStorage.setItem("credentials", JSON.stringify(currentCredentials));
+
     });
     const getCardNumber = () => {
         const timestamp = Date.now() + Math.round(Math.random() * 10);
         return timestamp.toString(16).slice(-9).toUpperCase();
     };
+    const getLS = () => {
+        for (let i = 0; i < localStorage.length; i++) {
+            let key = localStorage.key(i);
+            console.log(`${key}: ${localStorage.getItem(key)}`);
+        }
+    };
+
+    const loginLogin = loginAuthModal.querySelector('input[name="login"]');
+    const loginPassword = loginAuthModal.querySelector('input[name="password"]');
+    const loginSubmitButton = loginAuthModal.querySelector('.auth-submit-form');
+    loginSubmitButton.addEventListener("click", () => {
+        const currentCredentials = JSON.parse(localStorage.getItem('credentials')) || [];
+        const username = loginLogin.value;
+        const password = loginPassword.value;
+        for (let i = 0; i < currentCredentials.length; i++) {
+            if (currentCredentials[i].id === username && currentCredentials[i].password === password || currentCredentials[i].email === username && currentCredentials[i].password === password) {
+                localStorage.setItem("authorized", currentCredentials[i].id);
+            }
+        }
+    });
 });
 
 
