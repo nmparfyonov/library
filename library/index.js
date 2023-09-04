@@ -23,6 +23,9 @@ document.addEventListener("DOMContentLoaded", function () {
         if (!profileButton.contains(event.target) && !profileMenu.contains(event.target)) {
             profileMenu.classList.remove("menu-active");
         }
+        if (!profileAuthorizedButton.contains(event.target) && !profileAuthorizedMenu.contains(event.target)) {
+            profileAuthorizedMenu.classList.remove("menu-active");
+        }
     });
 
     const profileButton = document.querySelector(".profile");
@@ -30,6 +33,13 @@ document.addEventListener("DOMContentLoaded", function () {
 
     profileButton.addEventListener("click", () => {
         profileMenu.classList.toggle("menu-active");
+    });
+
+    const profileAuthorizedButton = document.querySelector(".authorized-icon");
+    const profileAuthorizedMenu = document.querySelector(".profile-menu-autorized");
+
+    profileAuthorizedButton.addEventListener("click", () => {
+        profileAuthorizedMenu.classList.toggle("menu-active");
     });
 
     const prevButton = document.getElementById("carret-left");
@@ -135,13 +145,14 @@ document.addEventListener("DOMContentLoaded", function () {
         button.addEventListener("click", showLoginModal);
     });
 
+    const profileAuthorizedMenuHeading = profileAuthorizedMenu.querySelector(".profile-menu-heading-authorized");
     const profileIcon = document.querySelector(".authorized-icon");
     const email = registerAuthModal.querySelector('input[name="email"]');
     const name = registerAuthModal.querySelector('input[name="name"]');
     const surname = registerAuthModal.querySelector('input[name="surname"]');
     const password = registerAuthModal.querySelector('input[name="password"]');
-    const registerSubmitButton = registerAuthModal.querySelector('.auth-submit-form');
-    registerSubmitButton.addEventListener("click", (event) => {
+    const registerSubmitForm = registerAuthModal.querySelector('.auth-modal-form');
+    registerSubmitForm.addEventListener("submit", (event) => {
         event.preventDefault();
         const cardNumber = getCardNumber();
         const currentUsers = JSON.parse(localStorage.getItem('users')) || [];
@@ -170,7 +181,11 @@ document.addEventListener("DOMContentLoaded", function () {
         profileIcon.value = name.value[0] + surname.value[0];
         profileIcon.classList.remove("hidden");
         profileButton.classList.add("hidden");
-
+        registerModal.classList.remove("show");
+        profileAuthorizedMenuHeading.innerHTML = cardNumber;
+        buyBookButtons.forEach((button) => {
+            button.removeEventListener("click", showLoginModal);
+        });
     });
     const getCardNumber = () => {
         const timestamp = Date.now() + Math.round(Math.random() * 10);
@@ -179,8 +194,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
     const loginLogin = loginAuthModal.querySelector('input[name="login"]');
     const loginPassword = loginAuthModal.querySelector('input[name="password"]');
-    const loginSubmitButton = loginAuthModal.querySelector('.auth-submit-form');
-    loginSubmitButton.addEventListener("click", (event) => {
+    const loginSubmitForm = loginAuthModal.querySelector('.auth-modal-form');
+    loginSubmitForm.addEventListener("submit", (event) => {
         event.preventDefault();
         const currentCredentials = JSON.parse(localStorage.getItem('credentials')) || [];
         const username = loginLogin.value;
@@ -188,7 +203,19 @@ document.addEventListener("DOMContentLoaded", function () {
         for (let i = 0; i < currentCredentials.length; i++) {
             if (currentCredentials[i].id === username && currentCredentials[i].password === password || currentCredentials[i].email === username && currentCredentials[i].password === password) {
                 localStorage.setItem("authorized", currentCredentials[i].id);
+                const currentUser = JSON.parse(localStorage.getItem("users")).filter((user) => user.id === currentCredentials[i].id)[0];
+                profileIcon.value = currentUser.data.name[0] + currentUser.data.surname[0];
+                profileIcon.classList.remove("hidden");
+                profileButton.classList.add("hidden");
+                loginModal.classList.remove("show");
+                profileAuthorizedMenuHeading.innerHTML = currentUser.id;
+                buyBookButtons.forEach((button) => {
+                    button.removeEventListener("click", showLoginModal);
+                });
             }
+        }
+        if (!localStorage.getItem('authorized')) {
+            alert('Invalid login or password');
         }
     });
 });
