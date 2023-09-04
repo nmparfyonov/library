@@ -1123,6 +1123,10 @@ h1 {
     gap: 20px;
 }
 
+.library-card-get-buttons button.hidden {
+    display: none;
+}
+
 .library-card-get-buttons button {
     display: flex;
     width: 75px;
