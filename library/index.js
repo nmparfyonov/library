@@ -215,12 +215,37 @@ document.addEventListener("DOMContentLoaded", function () {
                 buyBookButtons.forEach((button) => {
                     button.removeEventListener("click", showLoginModal);
                 });
+                const allUsers = JSON.parse(localStorage.getItem("users"));
+                allUsers.map((user) => {
+                    if (user.id === currentUser.id) {
+                        user.data.visits += 1;
+                    }
+                });
+                localStorage.setItem("users", JSON.stringify(allUsers));
             }
         }
         if (!localStorage.getItem('authorized')) {
             alert('Invalid login or password');
         }
     });
+    const logoutButton = document.querySelector('button[name="logout"]');
+    logoutButton.addEventListener("click", () => {
+        localStorage.removeItem('authorized');
+        location.reload();
+    });
+    if (!!localStorage.getItem('authorized')) {
+        const currentID = localStorage.getItem('authorized');
+        const currentUser = JSON.parse(localStorage.getItem("users")).filter((user) => user.id === currentID)[0];
+        profileIcon.value = currentUser.data.name[0] + currentUser.data.surname[0];
+        profileIcon.title = `${currentUser.data.name} ${currentUser.data.surname}`;
+        profileIcon.classList.remove("hidden");
+        profileButton.classList.add("hidden");
+        loginModal.classList.remove("show");
+        profileAuthorizedMenuHeading.innerHTML = currentUser.id;
+        buyBookButtons.forEach((button) => {
+            button.removeEventListener("click", showLoginModal);
+        });
+    }
 });
 
 
