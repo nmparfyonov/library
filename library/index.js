@@ -167,12 +167,6 @@ document.addEventListener("DOMContentLoaded", function () {
         const timestamp = Date.now() + Math.round(Math.random() * 10);
         return timestamp.toString(16).slice(-9).toUpperCase();
     };
-    const getLS = () => {
-        for (let i = 0; i < localStorage.length; i++) {
-            let key = localStorage.key(i);
-            console.log(`${key}: ${localStorage.getItem(key)}`);
-        }
-    };
 
     const loginLogin = loginAuthModal.querySelector('input[name="login"]');
     const loginPassword = loginAuthModal.querySelector('input[name="password"]');
