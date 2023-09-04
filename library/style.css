@@ -36,6 +36,7 @@ a {
 }
 
 header button,
+.authorized-icon,
 .close-modal,
 .auth-footer-link,
 .about-carousel button {
@@ -110,10 +111,34 @@ h1 {
     color: #BB945F;
 }
 
+.authorized-icon {
+    height: 28px;
+    width: 28px;
+    display: flex;
+    background-color: #FFF;
+    color: #BB945F;
+    font-family: Inter;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20px;
+    justify-content: center;
+    text-transform: uppercase;
+    border-radius: 50%;
+}
+
+.authorized-icon.hidden {
+    display: none;
+}
+
 .profile {
     height: 28px;
     width: 28px;
     display: flex;
+}
+
+.profile.hidden {
+    display: none;
 }
 
 .profile-container {

@@ -135,12 +135,14 @@ document.addEventListener("DOMContentLoaded", function () {
         button.addEventListener("click", showLoginModal);
     });
 
+    const profileIcon = document.querySelector(".authorized-icon");
     const email = registerAuthModal.querySelector('input[name="email"]');
     const name = registerAuthModal.querySelector('input[name="name"]');
     const surname = registerAuthModal.querySelector('input[name="surname"]');
     const password = registerAuthModal.querySelector('input[name="password"]');
     const registerSubmitButton = registerAuthModal.querySelector('.auth-submit-form');
-    registerSubmitButton.addEventListener("click", () => {
+    registerSubmitButton.addEventListener("click", (event) => {
+        event.preventDefault();
         const cardNumber = getCardNumber();
         const currentUsers = JSON.parse(localStorage.getItem('users')) || [];
         const currentCredentials = JSON.parse(localStorage.getItem('credentials')) || [];
@@ -151,7 +153,10 @@ document.addEventListener("DOMContentLoaded", function () {
                 "password": password.value,
                 "name": name.value,
                 "surname": surname.value,
-                "cardnumber": cardNumber
+                "cardnumber": cardNumber,
+                "visits": 1,
+                "subscription": false,
+                "books": []
             }
         });
         currentCredentials.push({
@@ -161,6 +166,10 @@ document.addEventListener("DOMContentLoaded", function () {
         });
         localStorage.setItem("users", JSON.stringify(currentUsers));
         localStorage.setItem("credentials", JSON.stringify(currentCredentials));
+        localStorage.setItem("authorized", cardNumber);
+        profileIcon.value = name.value[0] + surname.value[0];
+        profileIcon.classList.remove("hidden");
+        profileButton.classList.add("hidden");
 
     });
     const getCardNumber = () => {
@@ -171,7 +180,8 @@ document.addEventListener("DOMContentLoaded", function () {
     const loginLogin = loginAuthModal.querySelector('input[name="login"]');
     const loginPassword = loginAuthModal.querySelector('input[name="password"]');
     const loginSubmitButton = loginAuthModal.querySelector('.auth-submit-form');
-    loginSubmitButton.addEventListener("click", () => {
+    loginSubmitButton.addEventListener("click", (event) => {
+        event.preventDefault();
         const currentCredentials = JSON.parse(localStorage.getItem('credentials')) || [];
         const username = loginLogin.value;
         const password = loginPassword.value;
