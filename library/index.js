@@ -2,10 +2,17 @@ document.addEventListener("DOMContentLoaded", function () {
     const libraryCardGetSectionHeading = document.querySelector(".library-card-get-heading");
     const libraryCardGetSectionText = document.querySelector(".library-card-get-text");
     const libraryCardGetSectionButtons = document.querySelectorAll(".lcg-buttons");
+    const libraryCardFindFormName = document.querySelector("#card-find-name");
+    const libraryCardFindFormCardnumber = document.querySelector("#card-find-cardnumber");
     const changeLibraryCardSection = () => {
         libraryCardGetSectionButtons.forEach((button) => button.classList.toggle("hidden"));
         libraryCardGetSectionHeading.innerHTML = "Visit your profile";
         libraryCardGetSectionText.innerHTML = "With a digital library card you get free access to the Library’s wide array of digital resources including e-books, databases, educational resources, and more.";
+        const currentUser = JSON.parse(localStorage.getItem("users")).filter((user) => user.id === localStorage.getItem("authorized"))[0];
+        libraryCardFindFormName.value = `${currentUser.data.name} ${currentUser.data.surname}`;
+        libraryCardFindFormName.disabled = true;
+        libraryCardFindFormCardnumber.value = `${currentUser.id}`;
+        libraryCardFindFormCardnumber.disabled = true;
     };
 
     const hamburgerMenu = document.querySelector(".hamburger-menu");
@@ -202,7 +209,6 @@ document.addEventListener("DOMContentLoaded", function () {
             button.removeEventListener("click", showLoginModal);
         });
         changeLibraryCardSection();
-
     });
     const getCardNumber = () => {
         const timestamp = Date.now() + Math.round(Math.random() * 10);
