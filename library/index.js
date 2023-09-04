@@ -157,6 +157,11 @@ document.addEventListener("DOMContentLoaded", function () {
         const cardNumber = getCardNumber();
         const currentUsers = JSON.parse(localStorage.getItem('users')) || [];
         const currentCredentials = JSON.parse(localStorage.getItem('credentials')) || [];
+        for (let i = 0; i < currentCredentials.length; i++) {
+            if (email.value === currentCredentials[i].email) {
+                return alert("User with this email already exists");
+            }
+        }
         currentUsers.push({
             "id": cardNumber,
             "data": {
