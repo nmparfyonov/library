@@ -179,6 +179,7 @@ document.addEventListener("DOMContentLoaded", function () {
         localStorage.setItem("credentials", JSON.stringify(currentCredentials));
         localStorage.setItem("authorized", cardNumber);
         profileIcon.value = name.value[0] + surname.value[0];
+        profileIcon.title = `${name.value} ${surname.value}`;
         profileIcon.classList.remove("hidden");
         profileButton.classList.add("hidden");
         registerModal.classList.remove("show");
@@ -186,6 +187,7 @@ document.addEventListener("DOMContentLoaded", function () {
         buyBookButtons.forEach((button) => {
             button.removeEventListener("click", showLoginModal);
         });
+
     });
     const getCardNumber = () => {
         const timestamp = Date.now() + Math.round(Math.random() * 10);
@@ -205,6 +207,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 localStorage.setItem("authorized", currentCredentials[i].id);
                 const currentUser = JSON.parse(localStorage.getItem("users")).filter((user) => user.id === currentCredentials[i].id)[0];
                 profileIcon.value = currentUser.data.name[0] + currentUser.data.surname[0];
+                profileIcon.title = `${currentUser.data.name} ${currentUser.data.surname}`;
                 profileIcon.classList.remove("hidden");
                 profileButton.classList.add("hidden");
                 loginModal.classList.remove("show");
