@@ -132,6 +132,63 @@
             </div>
         </div>
     </div>
+    <div class="form-modal-background show" id="buy-subscription-modal">
+        <div class="profile-modal" id="subscription-auth-modal">
+            <button type="button" class="subscription-close-modal" id="login-close-modal-button"><svg
+                    xmlns="http://www.w3.org/2000/svg" width="19" height="19" viewBox="0 0 19 19" fill="none">
+                    <path d="M2 16.8507L17 2.00003" stroke="#0C0C0E" stroke-width="3" />
+                    <path d="M2 2.14926L17 17" stroke="#0C0C0E" stroke-width="3" />
+                </svg>
+            </button>
+            <div class="profile-modal-heading">
+                <span class="profile-square">JD</span>
+                <span class="profile-fullname">John asdasdasd</span>
+            </div>
+            <div class="subscription-modal-data">
+                <form class="subscription-modal-form" name="auth" method="post">
+                    <div class="auth-modal-fields">
+                        <div class="auth-modal-fields-field">
+                            <label class="auth-modal-fields-field-heading">Bank card number</label>
+                            <input type="text" name="ccn" class="auth-modal-fields-field-input"
+                                pattern="^\d{4,4}\s{0,1}\d{4,4}\s{0,1}\d{4,4}\s{0,1}\d{4,4}$" maxlength="19" required>
+                        </div>
+                        <div class="auth-modal-fields-field">
+                            <label class="auth-modal-fields-field-heading">Expiration code</label>
+                            <div class="subscription-expiration-fields">
+                                <input type="text" name="expday" class="subscription-modal-fields-field-input"
+                                    pattern="^\d{2,2}$" minlength="2" maxlength="2" required>
+                                <input type="text" name="expmonth" class="subscription-modal-fields-field-input"
+                                    pattern="^\d{2,2}$" minlength="2" maxlength="2" required>
+                            </div>
+                        </div>
+                        <div class="auth-modal-fields-field">
+                            <label class="auth-modal-fields-field-heading">CVC</label>
+                            <input type="text" name="cvc" class="subscription-modal-fields-field-input" minlength="3"
+                                pattern="^\d{3,3}$" maxlength="3" required>
+                        </div>
+                    </div>
+                    <div class="auth-modal-fields">
+                        <div class="auth-modal-fields-field">
+                            <label class="auth-modal-fields-field-heading">Cardholder name</label>
+                            <input type="text" name="cardholder-name" class="auth-modal-fields-field-input" required>
+                        </div>
+                        <div class="auth-modal-fields-field">
+                            <label class="auth-modal-fields-field-heading">Postal code</label>
+                            <input type="text" name="postal-code" class="auth-modal-fields-field-input" required>
+                        </div>
+                        <div class="auth-modal-fields-field">
+                            <label class="auth-modal-fields-field-heading">City / Town</label>
+                            <input type="text" name="address" class="auth-modal-fields-field-input" required>
+                        </div>
+                    </div>
+                    <div class="buy-button-price">
+                        <input class="auth-submit-form" type="submit" name="buy-subscription" value="Buy">
+                        <span class="subscription-price">$ 25.00</span>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
     <header>
         <a class="logo" href="#">
             <h1>Brooklyn Public Library</h1>
@@ -203,7 +260,8 @@
                 <div class="section-heading-underline"></div>
             </div>
             <div class="about-content">
-                <span class="about-text">The Brooklyn Library is a free workspace, a large number of books and a cozy
+                <span class="about-text">The Brooklyn Library is a free workspace, a large number of books and a
+                    cozy
                     coffee
                     shop inside
                 </span>
@@ -278,10 +336,13 @@
                                 <div class="favorites-book-name-author">
                                     <span class="favorites-book-name">The Book Eaters</span>
                                     <span class="favorites-book-author">By Sunyi Dean</span>
-                                    <span class="favorites-book-description">An unusual sci-fi story about a book eater
-                                        woman who tries desperately to save her dangerous mind-eater son from tradition
+                                    <span class="favorites-book-description">An unusual sci-fi story about a book
+                                        eater
+                                        woman who tries desperately to save her dangerous mind-eater son from
+                                        tradition
                                         and
-                                        certain death. Complete with dysfunctional family values, light Sapphic romance,
+                                        certain death. Complete with dysfunctional family values, light Sapphic
+                                        romance,
                                         and
                                         a strong, complex protagonist. Not for the faint of heart.</span>
                                     <form class="favorites-buy-form">
@@ -320,8 +381,10 @@
                                     <span class="favorites-book-author">By Erich Auerbach</span>
                                     <span class="favorites-book-description">Auerbach's engaging book places the
                                         'Comedy'
-                                        within the tradition of epic, tragedy, and philosophy in general, arguing for
-                                        Dante's uniqueness as one who raised the individual and his drama of soul into
+                                        within the tradition of epic, tragedy, and philosophy in general, arguing
+                                        for
+                                        Dante's uniqueness as one who raised the individual and his drama of soul
+                                        into
                                         something of divine significance—an inspired introduction to Dante's main
                                         themes.</span>
                                     <form class="favorites-buy-form">
@@ -338,9 +401,11 @@
                                 <div class="favorites-book-name-author">
                                     <span class="favorites-book-name">The Last Queen</span>
                                     <span class="favorites-book-author">By Clive Irving</span>
-                                    <span class="favorites-book-description">A timely and revelatory new biography of
+                                    <span class="favorites-book-description">A timely and revelatory new biography
+                                        of
                                         Queen
-                                        Elizabeth (and her family) exploring how the Windsors have evolved and thrived
+                                        Elizabeth (and her family) exploring how the Windsors have evolved and
+                                        thrived
                                         as
                                         the modern world has changed around them.</span>
                                     <form class="favorites-buy-form">
@@ -377,9 +442,11 @@
                                 <span class="favorites-card-span-staff">Staff Picks</span>
                                 <div class="favorites-card-staff-underline"></div>
                                 <div class="favorites-book-name-author">
-                                    <span class="favorites-book-name">Carry: A Memoir of Survival on Stolen Land</span>
+                                    <span class="favorites-book-name">Carry: A Memoir of Survival on Stolen
+                                        Land</span>
                                     <span class="favorites-book-author">By Toni Jenson</span>
-                                    <span class="favorites-book-description">This memoir about the author's relationship
+                                    <span class="favorites-book-description">This memoir about the author's
+                                        relationship
                                         with
                                         gun violence feels both expansive and intimate, resulting in a lyrical
                                         indictment of
@@ -399,7 +466,8 @@
                                 <div class="favorites-book-name-author">
                                     <span class="favorites-book-name">Days of Distraction</span>
                                     <span class="favorites-book-author">By Alexandra Chang</span>
-                                    <span class="favorites-book-description">A sardonic view of Silicon Valley culture,
+                                    <span class="favorites-book-description">A sardonic view of Silicon Valley
+                                        culture,
                                         a
                                         meditation on race, and a journal of displacement and belonging, all in one
                                         form-defying
@@ -418,10 +486,13 @@
                                 <div class="favorites-book-name-author">
                                     <span class="favorites-book-name">Dominicana</span>
                                     <span class="favorites-book-author">By Angie Cruz</span>
-                                    <span class="favorites-book-description">A fascinating story of a teenage girl who
+                                    <span class="favorites-book-description">A fascinating story of a teenage girl
+                                        who
                                         marries a
-                                        man twice her age with the promise to bring her to America. Her marriage is an
-                                        opportunity for her family to eventually immigrate. For fans of Isabel Allende
+                                        man twice her age with the promise to bring her to America. Her marriage is
+                                        an
+                                        opportunity for her family to eventually immigrate. For fans of Isabel
+                                        Allende
                                         and
                                         Julia
                                         Alvarez.</span>
@@ -444,9 +515,11 @@
                                     <span class="favorites-book-name">Crude: A Memoir</span>
                                     <span class="favorites-book-author">By Pablo Fajardo &amp; Sophie
                                         Tardy-Joubert</span>
-                                    <span class="favorites-book-description">Drawing and color by Damien Roudeau | This
+                                    <span class="favorites-book-description">Drawing and color by Damien Roudeau |
+                                        This
                                         book
-                                        illustrates the struggles of a group of indigenous Ecuadoreans as they try to
+                                        illustrates the struggles of a group of indigenous Ecuadoreans as they try
+                                        to
                                         sue
                                         the
                                         ChevronTexaco company for damage their oil fields did to the Amazon and her
@@ -466,9 +539,11 @@
                                     <span class="favorites-book-name">Let My People Go Surfing</span>
                                     <span class="favorites-book-author">By Yvon Chouinard</span>
                                     <span class="favorites-book-description">Chouinard—climber, businessman,
-                                        environmentalist—shares tales of courage and persistence from his experience of
+                                        environmentalist—shares tales of courage and persistence from his experience
+                                        of
                                         founding
-                                        and leading Patagonia, Inc. Full title: Let My People Go Surfing: The Education
+                                        and leading Patagonia, Inc. Full title: Let My People Go Surfing: The
+                                        Education
                                         of a
                                         Reluctant Businessman, Including 10 More Years of Business Unusual.</span>
                                     <form class="favorites-buy-form">
@@ -504,11 +579,13 @@
                                 <div class="favorites-book-name-author">
                                     <span class="favorites-book-name">Shark Dialogues: A Novel</span>
                                     <span class="favorites-book-author">By Kiana Davenport</span>
-                                    <span class="favorites-book-description">An epic saga of seven generations of one
+                                    <span class="favorites-book-description">An epic saga of seven generations of
+                                        one
                                         family
                                         encompasses the tumultuous history of Hawaii as a Hawaiian woman gathers her
                                         four
-                                        granddaughters together in an erotic tale of villains and dreamers, queens and
+                                        granddaughters together in an erotic tale of villains and dreamers, queens
+                                        and
                                         revolutionaries, lepers and healers.</span>
                                     <form class="favorites-buy-form">
                                         <button class="favorites-buy-book-button" type="button">Buy</button>
@@ -528,9 +605,11 @@
                                 <div class="favorites-book-name-author">
                                     <span class="favorites-book-name">Casual Conversation</span>
                                     <span class="favorites-book-author">By Renia White</span>
-                                    <span class="favorites-book-description">White's impressive debut collection takes
+                                    <span class="favorites-book-description">White's impressive debut collection
+                                        takes
                                         readers
-                                        through and beyond the concepts of conversation and the casual - both what we
+                                        through and beyond the concepts of conversation and the casual - both what
+                                        we
                                         say to
                                         each other and what we don't, examining the possibilities around how we
                                         construct
@@ -550,7 +629,8 @@
                                 <div class="favorites-book-name-author">
                                     <span class="favorites-book-name">The Great Fire</span>
                                     <span class="favorites-book-author">By Lou Ureneck</span>
-                                    <span class="favorites-book-description">The harrowing story of an ordinary American
+                                    <span class="favorites-book-description">The harrowing story of an ordinary
+                                        American
                                         and
                                         a
                                         principled Naval officer who, horrified by the burning of Smyrna, led an
@@ -574,9 +654,11 @@
                                     <span class="favorites-book-description">With the fall rolling around, one can't
                                         help
                                         but
-                                        think of baseball's postseason coming up! And what better way to prepare for it
+                                        think of baseball's postseason coming up! And what better way to prepare for
+                                        it
                                         than
-                                        reading the biography of one of the game's all-time greatest performers, the Man
+                                        reading the biography of one of the game's all-time greatest performers, the
+                                        Man
                                         of
                                         Steal, Rickey Henderson?</span>
                                     <form class="favorites-buy-form">
@@ -593,8 +675,10 @@
                                 <div class="favorites-book-name-author">
                                     <span class="favorites-book-name">Slug: And Other Stories</span>
                                     <span class="favorites-book-author">By Megan Milks</span>
-                                    <span class="favorites-book-description">Exes Tegan and Sara find themselves chained
-                                        together by hairballs of codependency. A father and child experience the shared
+                                    <span class="favorites-book-description">Exes Tegan and Sara find themselves
+                                        chained
+                                        together by hairballs of codependency. A father and child experience the
+                                        shared
                                         trauma
                                         of giving birth to gods from their wounds.</span>
                                     <form class="favorites-buy-form">
@@ -615,7 +699,8 @@
             </div>
             <span class="coffee-shop-text">In our library, we have of cozy coffee shop, welcoming in customers with
                 frothy cappuccinos and friendly conversation.
-                You can get a favorite book and read in coffee shop. our barista to cook you best coffee, and also you
+                You can get a favorite book and read in coffee shop. our barista to cook you best coffee, and also
+                you
                 can try desserts from bakery.</span>
             <div class="coffee-shop-menu">
                 <div class="coffee-shop-menu-drinks">
@@ -755,7 +840,8 @@
                 </div>
                 <div class="library-card-get">
                     <span class="library-card-get-heading">Get a reader card</span>
-                    <span class="library-card-get-text">You will be able to see a reader card after logging into account
+                    <span class="library-card-get-text">You will be able to see a reader card after logging into
+                        account
                         or you can register a new
                         account</span>
                     <form class="library-card-get-buttons">
