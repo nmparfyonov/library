@@ -260,11 +260,9 @@ document.addEventListener("DOMContentLoaded", function () {
         buyBookButtons.forEach((button) => {
             button.removeEventListener("click", showLoginModal);
         });
-        if (!currentUser.data.subscription) {
-            buyBookButtons.forEach((button) => {
-                button.addEventListener("click", showBuySubscriptionModal);
-            });
-        }
+        buyBookButtons.forEach((button) => {
+            button.addEventListener("click", showBuySubscriptionModal);
+        });
         changeLibraryCardSection();
     });
     const getCardNumber = () => {
@@ -317,6 +315,25 @@ document.addEventListener("DOMContentLoaded", function () {
         localStorage.removeItem('authorized');
         location.reload();
     });
+
+    const buySubscriptionForm = document.querySelector(".subscription-modal-form");
+    buySubscriptionForm.addEventListener("submit", (event) => {
+        event.preventDefault();
+        const users = JSON.parse(localStorage.getItem("users"));
+        const authorizedUserId = localStorage.getItem("authorized");
+        users.forEach((user) => {
+            if (user.id === authorizedUserId) {
+                user.data.subscription = true;
+            }
+        });
+        localStorage.setItem("users", JSON.stringify(users));
+        buyBookButtons.forEach((button) => {
+            button.removeEventListener("click", showBuySubscriptionModal);
+        });
+        buySubscriptionModal.classList.remove("show");;
+
+    });
+
     if (!!localStorage.getItem('authorized')) {
         const currentID = localStorage.getItem('authorized');
         const currentUser = JSON.parse(localStorage.getItem("users")).filter((user) => user.id === currentID)[0];
