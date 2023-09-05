@@ -38,6 +38,7 @@ a {
 header button,
 .authorized-icon,
 .close-modal,
+.copy-cardnumber-button,
 .subscription-close-modal,
 .auth-footer-link,
 .about-carousel button {
@@ -1371,7 +1372,7 @@ h1 {
     text-transform: uppercase;
     background-color: #0C0C0E;
     padding: 20px 25px 20px 25px;
-    width: 130px;
+    width: 120px;
     display: flex;
     flex-direction: column;
     gap: 15px;
@@ -1413,6 +1414,117 @@ h1 {
     text-transform: capitalize;
     align-items: center;
     justify-content: center;
+}
+
+.profile-modal-data {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    padding: 40px 60px 39px 20px;
+}
+
+.profile-modal-data-heading {
+    color: #000;
+    font-family: Forum;
+    font-size: 40px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20px;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+}
+
+.profile-modal-data-counters {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.profile-card-stat {
+    width: fit-content;
+    height: fit-content;
+    display: flex;
+    gap: 20px;
+}
+
+.profile-card-stat-counter {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+}
+
+.profile-card-stat-counter-text {
+    color: #000;
+    text-align: center;
+    font-family: Inter;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20px;
+    letter-spacing: 0.4px;
+    text-transform: capitalize;
+}
+
+.profile-card-rented-books {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.profile-card-rented-books-heading {
+    color: #0C0C0E;
+    font-family: Inter;
+    font-size: 25px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20px;
+}
+
+.profile-card-rented-books-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin: 0px;
+    padding: 0px 0px 0px 30px;
+    width: 320px;
+}
+
+.profile-card-rented-books-list li {
+    color: #000;
+    font-family: Inter;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20px;
+    letter-spacing: 2px;
+    text-transform: capitalize;
+    white-space: nowrap;
+}
+
+.profile-card-cardnumber {
+    display: flex;
+    gap: 15px;
+}
+
+.profile-card-cardnumber-text {
+    color: #0C0C0E;
+    text-align: center;
+    font-family: Inter;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20px;
+}
+
+.profile-card-cardnumber-number {
+    color: #BB945F;
+    text-align: center;
+    font-family: Inter;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20px;
 }
 
 .subscription-modal {

@@ -316,6 +316,26 @@ document.addEventListener("DOMContentLoaded", function () {
         location.reload();
     });
 
+    const profileMenuButtons = document.querySelectorAll('button[name="profile"]');
+    const profileMenuModal = document.querySelector("#profile-modal");
+    const profileMenuModalClose = document.querySelector("#profile-close-modal-button");
+    const profileMenuModalInfo = document.querySelector("#profile-info-modal");
+    profileMenuButtons.forEach((button) => {
+        button.addEventListener("click", () => {
+            profileMenuModal.classList.add("show");
+            profileAuthorizedMenu.classList.remove("menu-active");
+        });
+    });
+    profileMenuModalClose.addEventListener("click", () => {
+        profileMenuModal.classList.remove("show");
+    });
+    profileMenuModal.addEventListener("click", (event) => {
+        if (!profileMenuModalInfo.contains(event.target)) {
+            profileMenuModal.classList.remove("show");
+        }
+    });
+
+
     const buySubscriptionForm = document.querySelector(".subscription-modal-form");
     buySubscriptionForm.addEventListener("submit", (event) => {
         event.preventDefault();

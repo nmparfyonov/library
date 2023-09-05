@@ -77,7 +77,7 @@
     </div>
     <div class="form-modal-background" id="buy-subscription-modal">
         <div class="subscription-modal" id="subscription-auth-modal">
-            <button type="button" class="subscription-close-modal" id="login-close-modal-button"><svg
+            <button type="button" class="subscription-close-modal" id="subscription-close-modal-button"><svg
                     xmlns="http://www.w3.org/2000/svg" width="19" height="19" viewBox="0 0 19 19" fill="none">
                     <path d="M2 16.8507L17 2.00003" stroke="white" stroke-width="3" />
                     <path d="M2 2.14926L17 17" stroke="white" stroke-width="3" />
@@ -132,9 +132,9 @@
             </div>
         </div>
     </div>
-    <div class="form-modal-background show" id="buy-subscription-modal">
-        <div class="profile-modal" id="subscription-auth-modal">
-            <button type="button" class="subscription-close-modal" id="login-close-modal-button"><svg
+    <div class="form-modal-background" id="profile-modal">
+        <div class="profile-modal" id="profile-info-modal">
+            <button type="button" class="subscription-close-modal" id="profile-close-modal-button"><svg
                     xmlns="http://www.w3.org/2000/svg" width="19" height="19" viewBox="0 0 19 19" fill="none">
                     <path d="M2 16.8507L17 2.00003" stroke="#0C0C0E" stroke-width="3" />
                     <path d="M2 2.14926L17 17" stroke="#0C0C0E" stroke-width="3" />
@@ -144,48 +144,46 @@
                 <span class="profile-square">JD</span>
                 <span class="profile-fullname">John asdasdasd</span>
             </div>
-            <div class="subscription-modal-data">
-                <form class="subscription-modal-form" name="auth" method="post">
-                    <div class="auth-modal-fields">
-                        <div class="auth-modal-fields-field">
-                            <label class="auth-modal-fields-field-heading">Bank card number</label>
-                            <input type="text" name="ccn" class="auth-modal-fields-field-input"
-                                pattern="^\d{4,4}\s{0,1}\d{4,4}\s{0,1}\d{4,4}\s{0,1}\d{4,4}$" maxlength="19" required>
+            <div class="profile-modal-data">
+                <span class="profile-modal-data-heading">My profile</span>
+                <div class="profile-modal-data-counters">
+                    <div class="profile-card-stat">
+                        <div class="profile-card-stat-counter">
+                            <div class="profile-card-stat-counter-text">Visits</div>
+                            <img width="20px" height="21px" src="./assets/icons/profile-stat.svg" alt="visits">
+                            <div class="library-card-stat-counter-text" id="profile-visits">n</div>
                         </div>
-                        <div class="auth-modal-fields-field">
-                            <label class="auth-modal-fields-field-heading">Expiration code</label>
-                            <div class="subscription-expiration-fields">
-                                <input type="text" name="expday" class="subscription-modal-fields-field-input"
-                                    pattern="^\d{2,2}$" minlength="2" maxlength="2" required>
-                                <input type="text" name="expmonth" class="subscription-modal-fields-field-input"
-                                    pattern="^\d{2,2}$" minlength="2" maxlength="2" required>
-                            </div>
+                        <div class="profile-card-stat-counter">
+                            <div class="profile-card-stat-counter-text">Bonuses</div>
+                            <img width="20px" height="21px" src="./assets/icons/star-stat.svg" alt="bonuses">
+                            <div class="library-card-stat-counter-text" id="profile-bonuses">0</div>
                         </div>
-                        <div class="auth-modal-fields-field">
-                            <label class="auth-modal-fields-field-heading">CVC</label>
-                            <input type="text" name="cvc" class="subscription-modal-fields-field-input" minlength="3"
-                                pattern="^\d{3,3}$" maxlength="3" required>
+                        <div class="profile-card-stat-counter">
+                            <div class="profile-card-stat-counter-text">Books</div>
+                            <img width="20px" height="21px" src="./assets/icons/book-stat.svg" alt="books">
+                            <div class="library-card-stat-counter-text" id="profile-books">n</div>
                         </div>
                     </div>
-                    <div class="auth-modal-fields">
-                        <div class="auth-modal-fields-field">
-                            <label class="auth-modal-fields-field-heading">Cardholder name</label>
-                            <input type="text" name="cardholder-name" class="auth-modal-fields-field-input" required>
-                        </div>
-                        <div class="auth-modal-fields-field">
-                            <label class="auth-modal-fields-field-heading">Postal code</label>
-                            <input type="text" name="postal-code" class="auth-modal-fields-field-input" required>
-                        </div>
-                        <div class="auth-modal-fields-field">
-                            <label class="auth-modal-fields-field-heading">City / Town</label>
-                            <input type="text" name="address" class="auth-modal-fields-field-input" required>
-                        </div>
+                    <div class="profile-card-rented-books">
+                        <span class="profile-card-rented-books-heading">Rented books</span>
+                        <ul class="profile-card-rented-books-list">
+                            <li>The Last Queen, Clive Irving</li>
+                            <li>Dominicana, Angie Cruz</li>
+                        </ul>
                     </div>
-                    <div class="buy-button-price">
-                        <input class="auth-submit-form" type="submit" name="buy-subscription" value="Buy">
-                        <span class="subscription-price">$ 25.00</span>
-                    </div>
-                </form>
+                </div>
+                <div class="profile-card-cardnumber">
+                    <span class="profile-card-cardnumber-text">Card number</span>
+                    <span class="profile-card-cardnumber-number">F00234030</span>
+                    <button type="button" class="copy-cardnumber-button" id="copy-cardnumber">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="12" viewBox="0 0 14 12" fill="none">
+                            <rect x="2.46826" y="0.25" width="10.5917" height="9.5" rx="0.75" stroke="black"
+                                stroke-width="0.5" />
+                            <rect x="0.25" y="2.25" width="10.5917" height="9.5" rx="0.75" fill="white" stroke="black"
+                                stroke-width="0.5" />
+                        </svg>
+                    </button>
+                </div>
             </div>
         </div>
     </div>
