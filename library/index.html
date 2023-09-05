@@ -89,21 +89,22 @@
                     <div class="auth-modal-fields">
                         <div class="auth-modal-fields-field">
                             <label class="auth-modal-fields-field-heading">Bank card number</label>
-                            <input type="text" name="ccn" class="auth-modal-fields-field-input" required>
+                            <input type="text" name="ccn" class="auth-modal-fields-field-input"
+                                pattern="^\d{4,4}\s{0,1}\d{4,4}\s{0,1}\d{4,4}\s{0,1}\d{4,4}$" maxlength="19" required>
                         </div>
                         <div class="auth-modal-fields-field">
                             <label class="auth-modal-fields-field-heading">Expiration code</label>
                             <div class="subscription-expiration-fields">
                                 <input type="text" name="expday" class="subscription-modal-fields-field-input"
-                                    minlength="2" maxlength="2" required>
+                                    pattern="^\d{2,2}$" minlength="2" maxlength="2" required>
                                 <input type="text" name="expmonth" class="subscription-modal-fields-field-input"
-                                    minlength="2" maxlength="2" required>
+                                    pattern="^\d{2,2}$" minlength="2" maxlength="2" required>
                             </div>
                         </div>
                         <div class="auth-modal-fields-field">
                             <label class="auth-modal-fields-field-heading">CVC</label>
                             <input type="text" name="cvc" class="subscription-modal-fields-field-input" minlength="3"
-                                maxlength="3" required>
+                                pattern="^\d{3,3}$" maxlength="3" required>
                         </div>
                     </div>
                     <div class="auth-modal-fields">
