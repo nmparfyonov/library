@@ -8,6 +8,8 @@ document.addEventListener("DOMContentLoaded", function () {
     const libraryCardStats = document.querySelector(".library-card-stat");
     const libraryCardStatsVisits = document.querySelector("#visits");
     const libraryCardStatsBooks = document.querySelector("#books");
+    const profileStatsVisits = document.querySelector("#profile-visits");
+    const profileStatsBooks = document.querySelector("#profile-books");
     const libraryCardSearchForm = document.querySelector("#search-card-form");
     const changeLibraryCardSection = () => {
         libraryCardGetSectionButtons.forEach((button) => button.classList.toggle("hidden"));
@@ -21,6 +23,8 @@ document.addEventListener("DOMContentLoaded", function () {
         libraryCardCheckButton.classList.add("hidden");
         libraryCardStatsVisits.innerHTML = `${currentUser.data.visits}`;
         libraryCardStatsBooks.innerHTML = `${currentUser.data.books.length}`;
+        profileStatsVisits.innerHTML = `${currentUser.data.visits}`;
+        profileStatsBooks.innerHTML = `${currentUser.data.books.length}`;
         libraryCardStats.classList.remove("hidden");
     };
     libraryCardSearchForm.addEventListener("submit", (event) => {
@@ -253,6 +257,9 @@ document.addEventListener("DOMContentLoaded", function () {
         localStorage.setItem("authorized", cardNumber);
         profileIcon.value = name.value[0] + surname.value[0];
         profileIcon.title = `${name.value} ${surname.value}`;
+        profileMenuCardnumber.innerHTML = cardNumber;
+        profileMenuNameSquare.innerHTML = name.value[0] + surname.value[0];
+        profileMenuNameFullname.innerHTML = `${name.value} ${surname.value}`;
         profileIcon.classList.remove("hidden");
         profileButton.classList.add("hidden");
         registerModal.classList.remove("show");
@@ -284,6 +291,9 @@ document.addEventListener("DOMContentLoaded", function () {
                 const currentUser = JSON.parse(localStorage.getItem("users")).filter((user) => user.id === currentCredentials[i].id)[0];
                 profileIcon.value = currentUser.data.name[0] + currentUser.data.surname[0];
                 profileIcon.title = `${currentUser.data.name} ${currentUser.data.surname}`;
+                profileMenuCardnumber.innerHTML = currentUser.id;
+                profileMenuNameSquare.innerHTML = currentUser.data.name[0] + currentUser.data.surname[0];
+                profileMenuNameFullname.innerHTML = `${currentUser.data.name} ${currentUser.data.surname}`;
                 profileIcon.classList.remove("hidden");
                 profileButton.classList.add("hidden");
                 loginModal.classList.remove("show");
@@ -317,6 +327,9 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
     const profileMenuButtons = document.querySelectorAll('button[name="profile"]');
+    const profileMenuNameSquare = document.querySelector('.profile-square');
+    const profileMenuNameFullname = document.querySelector('.profile-fullname');
+    const profileMenuCardnumber = document.querySelector('.profile-card-cardnumber-number');
     const profileMenuModal = document.querySelector("#profile-modal");
     const profileMenuModalClose = document.querySelector("#profile-close-modal-button");
     const profileMenuModalInfo = document.querySelector("#profile-info-modal");
@@ -359,6 +372,9 @@ document.addEventListener("DOMContentLoaded", function () {
         const currentUser = JSON.parse(localStorage.getItem("users")).filter((user) => user.id === currentID)[0];
         profileIcon.value = currentUser.data.name[0] + currentUser.data.surname[0];
         profileIcon.title = `${currentUser.data.name} ${currentUser.data.surname}`;
+        profileMenuCardnumber.innerHTML = currentUser.id;
+        profileMenuNameSquare.innerHTML = currentUser.data.name[0] + currentUser.data.surname[0];
+        profileMenuNameFullname.innerHTML = `${currentUser.data.name} ${currentUser.data.surname}`;
         profileIcon.classList.remove("hidden");
         profileButton.classList.add("hidden");
         loginModal.classList.remove("show");
