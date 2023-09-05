@@ -1053,6 +1053,37 @@ h1 {
     align-items: center;
 }
 
+.library-card-stat {
+    margin-top: 40px;
+    width: fit-content;
+    height: fit-content;
+    display: flex;
+    gap: 35px;
+}
+
+.library-card-stat.hidden {
+    display: none;
+}
+
+.library-card-stat-counter {
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+    align-items: center;
+}
+
+.library-card-stat-counter-text {
+    color: #000;
+    text-align: center;
+    font-family: Inter;
+    font-size: 10px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20px;
+    letter-spacing: 0.2px;
+    text-transform: capitalize;
+}
+
 .library-card-find-form-inputs input[type="submit"] {
     color: #0C0C0E;
     text-align: center;
@@ -1069,6 +1100,10 @@ h1 {
     height: 44px;
     margin-top: 40px;
     background-color: #FFF;
+}
+
+.library-card-find-form-inputs input[type="submit"].hidden {
+    display: none;
 }
 
 .library-card-find-form-inputs input[type="submit"]:focus {

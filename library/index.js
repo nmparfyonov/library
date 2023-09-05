@@ -4,6 +4,11 @@ document.addEventListener("DOMContentLoaded", function () {
     const libraryCardGetSectionButtons = document.querySelectorAll(".lcg-buttons");
     const libraryCardFindFormName = document.querySelector("#card-find-name");
     const libraryCardFindFormCardnumber = document.querySelector("#card-find-cardnumber");
+    const libraryCardCheckButton = document.querySelector("#card-check-button");
+    const libraryCardStats = document.querySelector(".library-card-stat");
+    const libraryCardStatsVisits = document.querySelector("#visits");
+    const libraryCardStatsBooks = document.querySelector("#books");
+    const libraryCardSearchForm = document.querySelector("#search-card-form");
     const changeLibraryCardSection = () => {
         libraryCardGetSectionButtons.forEach((button) => button.classList.toggle("hidden"));
         libraryCardGetSectionHeading.innerHTML = "Visit your profile";
@@ -13,7 +18,42 @@ document.addEventListener("DOMContentLoaded", function () {
         libraryCardFindFormName.disabled = true;
         libraryCardFindFormCardnumber.value = `${currentUser.id}`;
         libraryCardFindFormCardnumber.disabled = true;
+        libraryCardCheckButton.classList.add("hidden");
+        libraryCardStatsVisits.innerHTML = `${currentUser.data.visits}`;
+        libraryCardStatsBooks.innerHTML = `${currentUser.data.books.length}`;
+        libraryCardStats.classList.remove("hidden");
     };
+    libraryCardSearchForm.addEventListener("submit", (event) => {
+        event.preventDefault();
+        const name = libraryCardFindFormName.value;
+        const cardNumber = libraryCardFindFormCardnumber.value;
+        const users = JSON.parse(localStorage.getItem("users"));
+        for (let i = 0; i < users.length; i++) {
+            if (users[i].id === cardNumber && users[i].data.name === name) {
+                libraryCardFindFormName.value = `${users[i].data.name} ${users[i].data.surname}`;
+                libraryCardFindFormName.disabled = true;
+                libraryCardFindFormCardnumber.value = `${users[i].id}`;
+                libraryCardFindFormCardnumber.disabled = true;
+                libraryCardCheckButton.classList.add("hidden");
+                libraryCardStatsVisits.innerHTML = `${users[i].data.visits}`;
+                libraryCardStatsBooks.innerHTML = `${users[i].data.books.length}`;
+                libraryCardStats.classList.remove("hidden");
+                return setTimeout(() => {
+                    libraryCardCheckButton.classList.remove("hidden");
+                    libraryCardStats.classList.add("hidden");
+                    libraryCardFindFormName.disabled = false;
+                    libraryCardFindFormCardnumber.disabled = false;
+                    libraryCardFindFormName.value = ``;
+                    libraryCardFindFormCardnumber.value = ``;
+                    if (!!localStorage.getItem("authorized")) {
+                        changeLibraryCardSection();
+                        libraryCardGetSectionButtons.forEach((button) => button.classList.toggle("hidden"));
+                    }
+                }, 10000);
+            }
+        }
+        alert("Library card not found. Check 'Name' (not name+surname) and 'Card number' fields");
+    });
 
     const hamburgerMenu = document.querySelector(".hamburger-menu");
     const navMenu = document.querySelector(".nav");

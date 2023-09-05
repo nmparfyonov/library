@@ -668,11 +668,30 @@
                     <div class="library-card-find-form">
                         <div class="library-card-find-form-inputs">
                             <span>Brooklyn Public Library</span>
-                            <form method="post">
+                            <form id="search-card-form" method="post">
                                 <input type="text" id="card-find-name" placeholder="Reader&#39;s name" required>
                                 <input type="text" id="card-find-cardnumber" placeholder="Card number" minlength="9"
                                     maxlength="9" required>
-                                <input type="submit" value="Check the card">
+                                <input type="submit" id="card-check-button" value="Check the card">
+                                <div class="library-card-stat hidden">
+                                    <div class="library-card-stat-counter">
+                                        <div class="library-card-stat-counter-text">Visits</div>
+                                        <img width="20px" height="21px" src="./assets/icons/profile-stat.svg"
+                                            alt="visits">
+                                        <div class="library-card-stat-counter-text" id="visits">n</div>
+                                    </div>
+                                    <div class="library-card-stat-counter">
+                                        <div class="library-card-stat-counter-text">Bonuses</div>
+                                        <img width="20px" height="21px" src="./assets/icons/star-stat.svg"
+                                            alt="bonuses">
+                                        <div class="library-card-stat-counter-text" id="bonuses">0</div>
+                                    </div>
+                                    <div class="library-card-stat-counter">
+                                        <div class="library-card-stat-counter-text">Books</div>
+                                        <img width="20px" height="21px" src="./assets/icons/book-stat.svg" alt="books">
+                                        <div class="library-card-stat-counter-text" id="books">n</div>
+                                    </div>
+                                </div>
                             </form>
                         </div>
                     </div>
