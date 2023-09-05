@@ -191,8 +191,20 @@ document.addEventListener("DOMContentLoaded", function () {
             registerModal.classList.toggle("show");
         });
     });
-
-
+    const buySubscriptionModal = document.querySelector("#buy-subscription-modal");
+    const buySubscriptionModalForm = document.querySelector("#subscription-auth-modal");
+    const closeSubscriptionModal = document.querySelector('.subscription-close-modal');
+    buySubscriptionModal.addEventListener("click", (event) => {
+        if (!buySubscriptionModalForm.contains(event.target)) {
+            buySubscriptionModal.classList.remove("show");
+        }
+    });
+    closeSubscriptionModal.addEventListener("click", () => {
+        buySubscriptionModal.classList.remove("show");
+    });
+    const showBuySubscriptionModal = () => {
+        buySubscriptionModal.classList.add("show");
+    };
     const showLoginModal = () => {
         loginModal.classList.add("show");
     };
@@ -248,6 +260,11 @@ document.addEventListener("DOMContentLoaded", function () {
         buyBookButtons.forEach((button) => {
             button.removeEventListener("click", showLoginModal);
         });
+        if (!currentUser.data.subscription) {
+            buyBookButtons.forEach((button) => {
+                button.addEventListener("click", showBuySubscriptionModal);
+            });
+        }
         changeLibraryCardSection();
     });
     const getCardNumber = () => {
@@ -276,6 +293,11 @@ document.addEventListener("DOMContentLoaded", function () {
                 buyBookButtons.forEach((button) => {
                     button.removeEventListener("click", showLoginModal);
                 });
+                if (!currentUser.data.subscription) {
+                    buyBookButtons.forEach((button) => {
+                        button.addEventListener("click", showBuySubscriptionModal);
+                    });
+                }
                 const allUsers = JSON.parse(localStorage.getItem("users"));
                 allUsers.map((user) => {
                     if (user.id === currentUser.id) {
@@ -307,6 +329,11 @@ document.addEventListener("DOMContentLoaded", function () {
         buyBookButtons.forEach((button) => {
             button.removeEventListener("click", showLoginModal);
         });
+        if (!currentUser.data.subscription) {
+            buyBookButtons.forEach((button) => {
+                button.addEventListener("click", showBuySubscriptionModal);
+            });
+        }
         changeLibraryCardSection();
     }
 });

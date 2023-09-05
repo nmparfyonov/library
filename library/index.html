@@ -75,6 +75,62 @@
             </div>
         </div>
     </div>
+    <div class="form-modal-background" id="buy-subscription-modal">
+        <div class="subscription-modal" id="subscription-auth-modal">
+            <button type="button" class="subscription-close-modal" id="login-close-modal-button"><svg
+                    xmlns="http://www.w3.org/2000/svg" width="19" height="19" viewBox="0 0 19 19" fill="none">
+                    <path d="M2 16.8507L17 2.00003" stroke="white" stroke-width="3" />
+                    <path d="M2 2.14926L17 17" stroke="white" stroke-width="3" />
+                </svg>
+            </button>
+            <span class="subscription-modal-heading">Buy a library card</span>
+            <div class="subscription-modal-data">
+                <form class="subscription-modal-form" name="auth" method="post">
+                    <div class="auth-modal-fields">
+                        <div class="auth-modal-fields-field">
+                            <label class="auth-modal-fields-field-heading">Bank card number</label>
+                            <input type="text" name="ccn" class="auth-modal-fields-field-input" required>
+                        </div>
+                        <div class="auth-modal-fields-field">
+                            <label class="auth-modal-fields-field-heading">Expiration code</label>
+                            <div class="subscription-expiration-fields">
+                                <input type="text" name="expday" class="subscription-modal-fields-field-input"
+                                    minlength="2" maxlength="2" required>
+                                <input type="text" name="expmonth" class="subscription-modal-fields-field-input"
+                                    minlength="2" maxlength="2" required>
+                            </div>
+                        </div>
+                        <div class="auth-modal-fields-field">
+                            <label class="auth-modal-fields-field-heading">CVC</label>
+                            <input type="text" name="cvc" class="subscription-modal-fields-field-input" minlength="3"
+                                maxlength="3" required>
+                        </div>
+                    </div>
+                    <div class="auth-modal-fields">
+                        <div class="auth-modal-fields-field">
+                            <label class="auth-modal-fields-field-heading">Cardholder name</label>
+                            <input type="text" name="cardholder-name" class="auth-modal-fields-field-input" required>
+                        </div>
+                        <div class="auth-modal-fields-field">
+                            <label class="auth-modal-fields-field-heading">Postal code</label>
+                            <input type="text" name="postal-code" class="auth-modal-fields-field-input" required>
+                        </div>
+                        <div class="auth-modal-fields-field">
+                            <label class="auth-modal-fields-field-heading">City / Town</label>
+                            <input type="text" name="address" class="auth-modal-fields-field-input" required>
+                        </div>
+                    </div>
+                    <div class="buy-button-price">
+                        <input class="auth-submit-form" type="submit" name="buy-subscription" value="Buy">
+                        <span class="subscription-price">$ 25.00</span>
+                    </div>
+                </form>
+                <span class="subscription-description">If you are live, work, attend school, or pay property taxes in
+                    New York State, you can get a $25 digital library card right now using this online form. Visitors to
+                    New York State can also use this form to apply for a temporary card.</span>
+            </div>
+        </div>
+    </div>
     <header>
         <a class="logo" href="#">
             <h1>Brooklyn Public Library</h1>

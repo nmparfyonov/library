@@ -38,6 +38,7 @@ a {
 header button,
 .authorized-icon,
 .close-modal,
+.subscription-close-modal,
 .auth-footer-link,
 .about-carousel button {
     padding: 0;
@@ -1348,6 +1349,91 @@ h1 {
 
 .form-modal-background.show {
     display: flex;
+}
+
+.subscription-modal {
+    background-color: #FFF;
+    display: flex;
+    flex-direction: column;
+    height: fit-content;
+    position: absolute;
+    z-index: 11;
+}
+
+.subscription-modal-form {
+    background-color: #FFF;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.subscription-modal-heading {
+    color: #FFF;
+    text-align: center;
+    font-family: Forum;
+    font-size: 40px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20px;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+    background-color: #0C0C0E;
+    padding: 20px 138px 20px 138px;
+    width: 364px;
+}
+
+.subscription-close-modal {
+    right: 23px;
+    top: 23px;
+    width: 19px;
+    height: 19px;
+    position: absolute;
+}
+
+.subscription-modal-data {
+    display: flex;
+    padding: 30px 35px 40px 35px;
+    gap: 40px;
+}
+
+.subscription-modal-fields-field-input {
+    width: 43px;
+    height: 18px;
+    border: 1px solid #BB945F;
+    padding: 0px;
+}
+
+.subscription-expiration-fields {
+    display: flex;
+    gap: 10px;
+}
+
+.buy-button-price {
+    display: flex;
+    gap: 25px;
+    align-items: flex-end;
+}
+
+.subscription-price {
+    color: #0C0C0E;
+    font-family: Inter;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 20px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.subscription-description {
+    color: #8E8E8E;
+    font-family: Inter;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20px;
+    letter-spacing: 2px;
+    width: 330px;
 }
 
 .auth-modal {
