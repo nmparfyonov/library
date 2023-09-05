@@ -741,21 +741,9 @@ h1 {
     justify-self: flex-end;
 }
 
-/*
-.favorites-own-book-button:focus {
-    cursor: pointer;
-    border-radius: 2px;
-    border: 1px solid #BB945F;
-    color: #fff;
-    background: #BB945F;
+.buy-book-info {
+    display: none;
 }
-
-.favorites-own-book-button:hover {
-    cursor: pointer;
-    border-radius: 2px;
-    border: 1px solid #0C0C0E;
-}
-*/
 
 /* coffee shop */
 .coffee-shop-text {
@@ -1488,6 +1476,8 @@ h1 {
     margin: 0px;
     padding: 0px 0px 0px 30px;
     width: 320px;
+    overflow: scroll;
+    height: 50px;
 }
 
 .profile-card-rented-books-list li {

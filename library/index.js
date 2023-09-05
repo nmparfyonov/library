@@ -65,6 +65,17 @@ document.addEventListener("DOMContentLoaded", function () {
         profileBooksList.innerHTML = booksString;
     };
 
+    const buyBookForm = document.querySelectorAll(".favorites-buy-form");
+    const buyBook = (bookName, userId) => {
+        const users = JSON.parse(localStorage.getItem("users"));
+        users.forEach((user) => {
+            if (user.id === userId) {
+                user.data.books.push(bookName);
+            }
+        });
+        localStorage.setItem("users", JSON.stringify(users));
+    };
+
     const hamburgerMenu = document.querySelector(".hamburger-menu");
     const navMenu = document.querySelector(".nav");
     const navItem = document.querySelectorAll(".nav li");
@@ -212,10 +223,12 @@ document.addEventListener("DOMContentLoaded", function () {
     closeSubscriptionModal.addEventListener("click", () => {
         buySubscriptionModal.classList.remove("show");
     });
-    const showBuySubscriptionModal = () => {
+    const showBuySubscriptionModal = (event) => {
+        event.preventDefault();
         buySubscriptionModal.classList.add("show");
     };
-    const showLoginModal = () => {
+    const showLoginModal = (event) => {
+        event.preventDefault();
         loginModal.classList.add("show");
     };
     const buyBookButtons = document.querySelectorAll('.favorites-buy-book-button');
@@ -312,6 +325,21 @@ document.addEventListener("DOMContentLoaded", function () {
                     buyBookButtons.forEach((button) => {
                         button.addEventListener("click", showBuySubscriptionModal);
                     });
+                } else {
+                    buyBookForm.forEach((form) => form.addEventListener("submit", (event) => {
+                        event.preventDefault();
+                        const bookName = form.querySelector(".buy-book-info").value;
+                        const userId = localStorage.getItem("authorized");
+                        buyBook(bookName, userId);
+                        const bookButton = form.querySelector(".favorites-buy-book-button");
+                        bookButton.disabled = true;
+                        bookButton.value = "Own";
+                        bookButton.classList.replace("favorites-buy-book-button", "favorites-own-book-button");
+                        const currentUser = JSON.parse(localStorage.getItem("users")).filter((user) => user.id === localStorage.getItem("authorized"))[0];
+                        changeLibraryCardSection();
+                        libraryCardGetSectionButtons.forEach((button) => button.classList.toggle("hidden"));
+                        updateBooksList(currentUser);
+                    }));
                 }
                 const allUsers = JSON.parse(localStorage.getItem("users"));
                 allUsers.map((user) => {
@@ -371,6 +399,16 @@ document.addEventListener("DOMContentLoaded", function () {
         buyBookButtons.forEach((button) => {
             button.removeEventListener("click", showBuySubscriptionModal);
         });
+        buyBookForm.forEach((form) => form.addEventListener("submit", (event) => {
+            event.preventDefault();
+            const bookName = form.querySelector(".buy-book-info").value;
+            const userId = localStorage.getItem("authorized");
+            buyBook(bookName, userId);
+            const bookButton = form.querySelector(".favorites-buy-book-button");
+            bookButton.disabled = true;
+            bookButton.value = "Own";
+            bookButton.classList.replace("favorites-buy-book-button", "favorites-own-book-button");
+        }));
         buySubscriptionModal.classList.remove("show");;
 
     });
@@ -394,6 +432,21 @@ document.addEventListener("DOMContentLoaded", function () {
             buyBookButtons.forEach((button) => {
                 button.addEventListener("click", showBuySubscriptionModal);
             });
+        } else {
+            buyBookForm.forEach((form) => form.addEventListener("submit", (event) => {
+                event.preventDefault();
+                const bookName = form.querySelector(".buy-book-info").value;
+                const userId = localStorage.getItem("authorized");
+                buyBook(bookName, userId);
+                const bookButton = form.querySelector(".favorites-buy-book-button");
+                bookButton.disabled = true;
+                bookButton.value = "Own";
+                bookButton.classList.replace("favorites-buy-book-button", "favorites-own-book-button");
+                const currentUser = JSON.parse(localStorage.getItem("users")).filter((user) => user.id === localStorage.getItem("authorized"))[0];
+                changeLibraryCardSection();
+                libraryCardGetSectionButtons.forEach((button) => button.classList.toggle("hidden"));
+                updateBooksList(currentUser);
+            }));
         }
         changeLibraryCardSection();
         updateBooksList(currentUser);
