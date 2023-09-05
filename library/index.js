@@ -59,6 +59,12 @@ document.addEventListener("DOMContentLoaded", function () {
         alert("Library card not found. Check 'Name' (not name+surname) and 'Card number' fields");
     });
 
+    const profileBooksList = document.querySelector(".profile-card-rented-books-list");
+    const updateBooksList = (user) => {
+        const booksString = user.data.books.map((book) => `<li>${book}</li>`).join('');
+        profileBooksList.innerHTML = booksString;
+    };
+
     const hamburgerMenu = document.querySelector(".hamburger-menu");
     const navMenu = document.querySelector(".nav");
     const navItem = document.querySelectorAll(".nav li");
@@ -271,6 +277,7 @@ document.addEventListener("DOMContentLoaded", function () {
             button.addEventListener("click", showBuySubscriptionModal);
         });
         changeLibraryCardSection();
+        updateBooksList({ data: { books: [] } });
     });
     const getCardNumber = () => {
         const timestamp = Date.now() + Math.round(Math.random() * 10);
@@ -314,6 +321,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 });
                 localStorage.setItem("users", JSON.stringify(allUsers));
                 changeLibraryCardSection();
+                updateBooksList(currentUser);
             }
         }
         if (!localStorage.getItem('authorized')) {
@@ -388,6 +396,7 @@ document.addEventListener("DOMContentLoaded", function () {
             });
         }
         changeLibraryCardSection();
+        updateBooksList(currentUser);
     }
 });
 
