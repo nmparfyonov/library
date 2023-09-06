@@ -11,6 +11,56 @@ document.addEventListener("DOMContentLoaded", function () {
     const profileStatsVisits = document.querySelector("#profile-visits");
     const profileStatsBooks = document.querySelector("#profile-books");
     const libraryCardSearchForm = document.querySelector("#search-card-form");
+    const profileMenuButtons = document.querySelectorAll('button[name="profile"]');
+    const profileMenuNameSquare = document.querySelector('.profile-square');
+    const profileMenuNameFullname = document.querySelector('.profile-fullname');
+    const profileMenuCardnumber = document.querySelector('.profile-card-cardnumber-number');
+    const profileMenuModal = document.querySelector("#profile-modal");
+    const profileMenuModalClose = document.querySelector("#profile-close-modal-button");
+    const profileMenuModalInfo = document.querySelector("#profile-info-modal");
+    const profileButton = document.querySelector(".profile");
+    const profileMenu = document.querySelector(".profile-menu");
+    const profileBooksList = document.querySelector(".profile-card-rented-books-list");
+    const buyBookForm = document.querySelectorAll(".favorites-buy-form");
+    const hamburgerMenu = document.querySelector(".hamburger-menu");
+    const navMenu = document.querySelector(".nav");
+    const navItem = document.querySelectorAll(".nav li");
+    const prevButton = document.getElementById("carret-left");
+    const nextButton = document.getElementById("carret-right");
+    const carouselImages = document.querySelector(".about-carousel-images");
+    const radioButtons = document.querySelectorAll('input[name="pagination"]');
+    let currentIndex = 0;
+    const seasonButtons = document.querySelectorAll('input[name="season"]');
+    const seasons = document.querySelectorAll('.season-books');
+    let seasonPageIndex = 0;
+    const profileAuthorizedButton = document.querySelector(".authorized-icon");
+    const profileAuthorizedMenu = document.querySelector(".profile-menu-autorized");
+    const registerButtons = document.querySelectorAll('button[name="register"]');
+    const registerModal = document.querySelector('#register-modal');
+    const registerAuthModal = document.querySelector('#register-auth-modal');
+    const closeRegisterModal = document.querySelector('#register-close-modal-button');
+    const loginButtons = document.querySelectorAll('button[name="login"]');
+    const loginModal = document.querySelector('#login-modal');
+    const loginAuthModal = document.querySelector('#login-auth-modal');
+    const closeLoginModal = document.querySelector('#login-close-modal-button');
+    const switchAuthModals = document.querySelectorAll('.auth-footer-link');
+    const buySubscriptionModal = document.querySelector("#buy-subscription-modal");
+    const buySubscriptionModalForm = document.querySelector("#subscription-auth-modal");
+    const closeSubscriptionModal = document.querySelector('.subscription-close-modal');
+    const buyBookButtons = document.querySelectorAll('.favorites-buy-book-button');
+    const profileAuthorizedMenuHeading = profileAuthorizedMenu.querySelector(".profile-menu-heading-authorized");
+    const profileIcon = document.querySelector(".authorized-icon");
+    const email = registerAuthModal.querySelector('input[name="email"]');
+    const name = registerAuthModal.querySelector('input[name="name"]');
+    const surname = registerAuthModal.querySelector('input[name="surname"]');
+    const password = registerAuthModal.querySelector('input[name="password"]');
+    const registerSubmitForm = registerAuthModal.querySelector('.auth-modal-form');
+    const loginLogin = loginAuthModal.querySelector('input[name="login"]');
+    const loginPassword = loginAuthModal.querySelector('input[name="password"]');
+    const loginSubmitForm = loginAuthModal.querySelector('.auth-modal-form');
+    const logoutButton = document.querySelector('button[name="logout"]');
+    const buySubscriptionForm = document.querySelector(".subscription-modal-form");
+
     const changeLibraryCardSection = () => {
         libraryCardGetSectionButtons.forEach((button) => button.classList.toggle("hidden"));
         libraryCardGetSectionHeading.innerHTML = "Visit your profile";
@@ -27,6 +77,74 @@ document.addEventListener("DOMContentLoaded", function () {
         profileStatsBooks.innerHTML = `${currentUser.data.books.length}`;
         libraryCardStats.classList.remove("hidden");
     };
+
+    const updateBooksList = (user) => {
+        const booksString = user.data.books.map((book) => `<li>${book}</li>`).join('');
+        profileBooksList.innerHTML = booksString;
+    };
+
+    const updateBoughtBooksButtons = () => {
+        buyBookForm.forEach((form) => {
+            const users = JSON.parse(localStorage.getItem("users"));
+            const authorizedUserId = localStorage.getItem("authorized");
+            const userBooks = users.filter((user) => user.id === authorizedUserId)[0].data.books;
+            const value = form.querySelector(".buy-book-info").value;
+            const button = form.querySelector(".favorites-buy-book-button");
+            if (userBooks.includes(value)) {
+                button.disabled = true;
+                button.value = "Own";
+                button.classList.replace("favorites-buy-book-button", "favorites-own-book-button");
+            } else {
+                button.disabled = false;
+                button.value = "Buy";
+                button.classList.remove("favorites-buy-book-button", "favorites-own-book-button");
+                button.classList.add("favorites-buy-book-button");
+            }
+        });
+    };
+
+    const buyBook = (bookName, userId) => {
+        const users = JSON.parse(localStorage.getItem("users"));
+        users.forEach((user) => {
+            if (user.id === userId) {
+                user.data.books.push(bookName);
+            }
+        });
+        localStorage.setItem("users", JSON.stringify(users));
+    };
+
+    const updateCarousel = () => {
+        const offset = -currentIndex * 475;
+        carouselImages.style.transform = `translateX(${offset}px)`;
+        radioButtons[currentIndex].checked = true;
+        [...radioButtons].map((button, index) => index === currentIndex ? button.disabled = true : button.disabled = false);
+        nextButton.disabled = currentIndex === carouselImages.children.length - 1 ? true : false;
+        prevButton.disabled = currentIndex === 0 ? true : false;
+    };
+
+    const showBooks = () => {
+        seasons[seasonPageIndex].classList.add('show');
+    };
+
+    const hideBooks = () => {
+        seasons[seasonPageIndex].classList.remove('show');
+    };
+
+    const showBuySubscriptionModal = (event) => {
+        event.preventDefault();
+        buySubscriptionModal.classList.add("show");
+    };
+
+    const showLoginModal = (event) => {
+        event.preventDefault();
+        loginModal.classList.add("show");
+    };
+
+    const getCardNumber = () => {
+        const timestamp = Date.now() + Math.round(Math.random() * 10);
+        return timestamp.toString(16).slice(-9).toUpperCase();
+    };
+
     libraryCardSearchForm.addEventListener("submit", (event) => {
         event.preventDefault();
         const name = libraryCardFindFormName.value;
@@ -59,46 +177,6 @@ document.addEventListener("DOMContentLoaded", function () {
         alert("Library card not found. Check 'Name' (not name+surname) and 'Card number' fields");
     });
 
-    const profileBooksList = document.querySelector(".profile-card-rented-books-list");
-    const updateBooksList = (user) => {
-        const booksString = user.data.books.map((book) => `<li>${book}</li>`).join('');
-        profileBooksList.innerHTML = booksString;
-    };
-
-    const buyBookForm = document.querySelectorAll(".favorites-buy-form");
-    const updateBoughtBooksButtons = () => {
-        buyBookForm.forEach((form) => {
-            const users = JSON.parse(localStorage.getItem("users"));
-            const authorizedUserId = localStorage.getItem("authorized");
-            const userBooks = users.filter((user) => user.id === authorizedUserId)[0].data.books;
-            const value = form.querySelector(".buy-book-info").value;
-            const button = form.querySelector(".favorites-buy-book-button");
-            if (userBooks.includes(value)) {
-                button.disabled = true;
-                button.value = "Own";
-                button.classList.replace("favorites-buy-book-button", "favorites-own-book-button");
-            } else {
-                button.disabled = false;
-                button.value = "Buy";
-                button.classList.remove("favorites-buy-book-button", "favorites-own-book-button");
-                button.classList.add("favorites-buy-book-button");
-            }
-        });
-    };
-    const buyBook = (bookName, userId) => {
-        const users = JSON.parse(localStorage.getItem("users"));
-        users.forEach((user) => {
-            if (user.id === userId) {
-                user.data.books.push(bookName);
-            }
-        });
-        localStorage.setItem("users", JSON.stringify(users));
-    };
-
-    const hamburgerMenu = document.querySelector(".hamburger-menu");
-    const navMenu = document.querySelector(".nav");
-    const navItem = document.querySelectorAll(".nav li");
-
     hamburgerMenu.addEventListener("click", () => {
         navMenu.classList.toggle("menu-active");
         hamburgerMenu.classList.toggle("menu-active");
@@ -111,6 +189,7 @@ document.addEventListener("DOMContentLoaded", function () {
         }
         );
     });
+
     document.addEventListener("click", (event) => {
         if (!hamburgerMenu.contains(event.target) && !navMenu.contains(event.target)) {
             hamburgerMenu.classList.remove("menu-active");
@@ -124,25 +203,13 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 
-    const profileButton = document.querySelector(".profile");
-    const profileMenu = document.querySelector(".profile-menu");
-
     profileButton.addEventListener("click", () => {
         profileMenu.classList.toggle("menu-active");
     });
 
-    const profileAuthorizedButton = document.querySelector(".authorized-icon");
-    const profileAuthorizedMenu = document.querySelector(".profile-menu-autorized");
-
     profileAuthorizedButton.addEventListener("click", () => {
         profileAuthorizedMenu.classList.toggle("menu-active");
     });
-
-    const prevButton = document.getElementById("carret-left");
-    const nextButton = document.getElementById("carret-right");
-    const carouselImages = document.querySelector(".about-carousel-images");
-    const radioButtons = document.querySelectorAll('input[name="pagination"]');
-    let currentIndex = 0;
 
     nextButton.addEventListener("click", () => {
         currentIndex = (currentIndex + 1) % carouselImages.children.length;
@@ -161,18 +228,6 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 
-    function updateCarousel() {
-        const offset = -currentIndex * 475;
-        carouselImages.style.transform = `translateX(${offset}px)`;
-        radioButtons[currentIndex].checked = true;
-        [...radioButtons].map((button, index) => index === currentIndex ? button.disabled = true : button.disabled = false);
-        nextButton.disabled = currentIndex === carouselImages.children.length - 1 ? true : false;
-        prevButton.disabled = currentIndex === 0 ? true : false;
-    }
-
-    const seasonButtons = document.querySelectorAll('input[name="season"]');
-    const seasons = document.querySelectorAll('.season-books');
-    let seasonPageIndex = 0;
     seasonButtons.forEach((radio, index) => {
         radio.addEventListener("change", () => {
             hideBooks();
@@ -181,87 +236,61 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 
-    function showBooks() {
-        seasons[seasonPageIndex].classList.add('show');
-    }
-    function hideBooks() {
-        seasons[seasonPageIndex].classList.remove('show');
-    }
-
-    const registerButtons = document.querySelectorAll('button[name="register"]');
-    const registerModal = document.querySelector('#register-modal');
-    const registerAuthModal = document.querySelector('#register-auth-modal');
-    const closeRegisterModal = document.querySelector('#register-close-modal-button');
-    const loginButtons = document.querySelectorAll('button[name="login"]');
-    const loginModal = document.querySelector('#login-modal');
-    const loginAuthModal = document.querySelector('#login-auth-modal');
-    const closeLoginModal = document.querySelector('#login-close-modal-button');
-    const switchAuthModals = document.querySelectorAll('.auth-footer-link');
     registerButtons.forEach((button) => {
         button.addEventListener("click", () => {
             registerModal.classList.add("show");
             profileMenu.classList.remove("menu-active");
         });
     });
+
     registerModal.addEventListener("click", (event) => {
         if (!registerAuthModal.contains(event.target)) {
             registerModal.classList.remove("show");
         }
     });
+
     closeRegisterModal.addEventListener("click", () => {
         registerModal.classList.remove("show");
     });
+
     loginButtons.forEach((button) => {
         button.addEventListener("click", () => {
             loginModal.classList.add("show");
             profileMenu.classList.remove("menu-active");
         });
     });
+
     loginModal.addEventListener("click", (event) => {
         if (!loginAuthModal.contains(event.target)) {
             loginModal.classList.remove("show");
         }
     });
+
     closeLoginModal.addEventListener("click", () => {
         loginModal.classList.remove("show");
     });
+
     switchAuthModals.forEach((link) => {
         link.addEventListener("click", () => {
             loginModal.classList.toggle("show");
             registerModal.classList.toggle("show");
         });
     });
-    const buySubscriptionModal = document.querySelector("#buy-subscription-modal");
-    const buySubscriptionModalForm = document.querySelector("#subscription-auth-modal");
-    const closeSubscriptionModal = document.querySelector('.subscription-close-modal');
+
     buySubscriptionModal.addEventListener("click", (event) => {
         if (!buySubscriptionModalForm.contains(event.target)) {
             buySubscriptionModal.classList.remove("show");
         }
     });
+
     closeSubscriptionModal.addEventListener("click", () => {
         buySubscriptionModal.classList.remove("show");
     });
-    const showBuySubscriptionModal = (event) => {
-        event.preventDefault();
-        buySubscriptionModal.classList.add("show");
-    };
-    const showLoginModal = (event) => {
-        event.preventDefault();
-        loginModal.classList.add("show");
-    };
-    const buyBookButtons = document.querySelectorAll('.favorites-buy-book-button');
+
     buyBookButtons.forEach((button) => {
         button.addEventListener("click", showLoginModal);
     });
 
-    const profileAuthorizedMenuHeading = profileAuthorizedMenu.querySelector(".profile-menu-heading-authorized");
-    const profileIcon = document.querySelector(".authorized-icon");
-    const email = registerAuthModal.querySelector('input[name="email"]');
-    const name = registerAuthModal.querySelector('input[name="name"]');
-    const surname = registerAuthModal.querySelector('input[name="surname"]');
-    const password = registerAuthModal.querySelector('input[name="password"]');
-    const registerSubmitForm = registerAuthModal.querySelector('.auth-modal-form');
     registerSubmitForm.addEventListener("submit", (event) => {
         event.preventDefault();
         const cardNumber = getCardNumber();
@@ -311,14 +340,7 @@ document.addEventListener("DOMContentLoaded", function () {
         changeLibraryCardSection();
         updateBooksList({ data: { books: [] } });
     });
-    const getCardNumber = () => {
-        const timestamp = Date.now() + Math.round(Math.random() * 10);
-        return timestamp.toString(16).slice(-9).toUpperCase();
-    };
 
-    const loginLogin = loginAuthModal.querySelector('input[name="login"]');
-    const loginPassword = loginAuthModal.querySelector('input[name="password"]');
-    const loginSubmitForm = loginAuthModal.querySelector('.auth-modal-form');
     loginSubmitForm.addEventListener("submit", (event) => {
         event.preventDefault();
         const currentCredentials = JSON.parse(localStorage.getItem('credentials')) || [];
@@ -376,36 +398,29 @@ document.addEventListener("DOMContentLoaded", function () {
             alert('Invalid login or password');
         }
     });
-    const logoutButton = document.querySelector('button[name="logout"]');
+
     logoutButton.addEventListener("click", () => {
         localStorage.removeItem('authorized');
         location.reload();
     });
 
-    const profileMenuButtons = document.querySelectorAll('button[name="profile"]');
-    const profileMenuNameSquare = document.querySelector('.profile-square');
-    const profileMenuNameFullname = document.querySelector('.profile-fullname');
-    const profileMenuCardnumber = document.querySelector('.profile-card-cardnumber-number');
-    const profileMenuModal = document.querySelector("#profile-modal");
-    const profileMenuModalClose = document.querySelector("#profile-close-modal-button");
-    const profileMenuModalInfo = document.querySelector("#profile-info-modal");
     profileMenuButtons.forEach((button) => {
         button.addEventListener("click", () => {
             profileMenuModal.classList.add("show");
             profileAuthorizedMenu.classList.remove("menu-active");
         });
     });
+
     profileMenuModalClose.addEventListener("click", () => {
         profileMenuModal.classList.remove("show");
     });
+
     profileMenuModal.addEventListener("click", (event) => {
         if (!profileMenuModalInfo.contains(event.target)) {
             profileMenuModal.classList.remove("show");
         }
     });
 
-
-    const buySubscriptionForm = document.querySelector(".subscription-modal-form");
     buySubscriptionForm.addEventListener("submit", (event) => {
         event.preventDefault();
         const users = JSON.parse(localStorage.getItem("users"));
