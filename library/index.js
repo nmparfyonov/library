@@ -66,6 +66,25 @@ document.addEventListener("DOMContentLoaded", function () {
     };
 
     const buyBookForm = document.querySelectorAll(".favorites-buy-form");
+    const updateBoughtBooksButtons = () => {
+        buyBookForm.forEach((form) => {
+            const users = JSON.parse(localStorage.getItem("users"));
+            const authorizedUserId = localStorage.getItem("authorized");
+            const userBooks = users.filter((user) => user.id === authorizedUserId)[0].data.books;
+            const value = form.querySelector(".buy-book-info").value;
+            const button = form.querySelector(".favorites-buy-book-button");
+            if (userBooks.includes(value)) {
+                button.disabled = true;
+                button.value = "Own";
+                button.classList.replace("favorites-buy-book-button", "favorites-own-book-button");
+            } else {
+                button.disabled = false;
+                button.value = "Buy";
+                button.classList.remove("favorites-buy-book-button", "favorites-own-book-button");
+                button.classList.add("favorites-buy-book-button");
+            }
+        });
+    };
     const buyBook = (bookName, userId) => {
         const users = JSON.parse(localStorage.getItem("users"));
         users.forEach((user) => {
@@ -340,6 +359,7 @@ document.addEventListener("DOMContentLoaded", function () {
                         libraryCardGetSectionButtons.forEach((button) => button.classList.toggle("hidden"));
                         updateBooksList(currentUser);
                     }));
+                    updateBoughtBooksButtons();
                 }
                 const allUsers = JSON.parse(localStorage.getItem("users"));
                 allUsers.map((user) => {
@@ -408,6 +428,10 @@ document.addEventListener("DOMContentLoaded", function () {
             bookButton.disabled = true;
             bookButton.value = "Own";
             bookButton.classList.replace("favorites-buy-book-button", "favorites-own-book-button");
+            const currentUser = JSON.parse(localStorage.getItem("users")).filter((user) => user.id === localStorage.getItem("authorized"))[0];
+            changeLibraryCardSection();
+            libraryCardGetSectionButtons.forEach((button) => button.classList.toggle("hidden"));
+            updateBooksList(currentUser);
         }));
         buySubscriptionModal.classList.remove("show");;
 
@@ -447,6 +471,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 libraryCardGetSectionButtons.forEach((button) => button.classList.toggle("hidden"));
                 updateBooksList(currentUser);
             }));
+            updateBoughtBooksButtons();
         }
         changeLibraryCardSection();
         updateBooksList(currentUser);
