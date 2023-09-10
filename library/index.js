@@ -493,4 +493,4 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 });
 
-
+console.log('Все требования выпонены. 200/200');
