@@ -60,6 +60,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const loginSubmitForm = loginAuthModal.querySelector('.auth-modal-form');
     const logoutButton = document.querySelector('button[name="logout"]');
     const buySubscriptionForm = document.querySelector(".subscription-modal-form");
+    const copyCardnumber = document.querySelector("#copy-cardnumber");
 
     const changeLibraryCardSection = () => {
         libraryCardGetSectionButtons.forEach((button) => button.classList.toggle("hidden"));
@@ -450,6 +451,11 @@ document.addEventListener("DOMContentLoaded", function () {
         }));
         buySubscriptionModal.classList.remove("show");;
 
+    });
+
+    copyCardnumber.addEventListener('click', (event) => {
+        event.preventDefault();
+        navigator.clipboard.writeText(localStorage.getItem("authorized"));
     });
 
     if (!!localStorage.getItem('authorized')) {
