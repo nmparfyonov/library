@@ -1,0 +1,42 @@
+@import url('https://fonts.googleapis.com/css2?family=Forum&family=Inter:wght@400&display=swap');
+
+body {
+    /*background-image: url(./assets/img/dontstartnow.png);*/
+    height: 100vh;
+    width: 100%;
+    margin: 0%;
+}
+
+footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: gray;
+    padding: 1%;
+}
+
+a:hover svg path {
+    fill: #BB945F;
+}
+
+a:hover {
+    color: #BB945F;
+}
+
+a svg path,
+a {
+    transition: 200ms linear;
+    text-decoration: none;
+}
+
+footer span,
+footer a {
+    color: #FFF;
+    text-align: center;
+    font-family: Inter;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20px;
+    letter-spacing: 2px;
+}
