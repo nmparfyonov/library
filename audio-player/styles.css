@@ -20,12 +20,8 @@ button {
     cursor: pointer;
 }
 
-button img {
-    width: 100%;
-    height: 50px;
-}
-
-a:hover svg path {
+a:hover svg path,
+button:hover svg path {
     fill: #BB945F;
 }
 
