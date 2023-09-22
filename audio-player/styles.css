@@ -5,18 +5,10 @@ body {
     background-image: url(./assets/img/dontstartnow.png);
     backdrop-filter: blur(5px);
     display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     height: 100vh;
     margin: 0%;
-}
-
-footer {
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: gray;
-    padding: 1%;
-    align-self: flex-end;
 }
 
 a:hover svg path {
@@ -31,6 +23,21 @@ a svg path,
 a {
     transition: 200ms linear;
     text-decoration: none;
+}
+
+main {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: gray;
+    padding: 1%;
 }
 
 footer span {
